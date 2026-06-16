@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<div class="bg-glow"></div>
+<div class="content">
+<div class="top-nav">
+  <a href="index.html" class="nav-home">🏠 Início</a>
+  <span class="nav-title">💎 Nível 3 — Avançado</span>
+  <div style="width:70px;"></div>
+</div>
+
+<div class="exam-header">
+  <div class="eh-title">📝 Preencha antes de começar</div>
+  <div class="eh-grid">
+    <div class="eh-field"><label>Nome</label><input type="text" placeholder="Seu nome aqui"></div>
+    <div class="eh-field"><label>Data</label><input type="date"></div>
+    <div class="eh-field"><label>Turma</label><input type="text" placeholder="Ex: 4º A"></div>
+    <div class="eh-field"><label>Nota</label><div class="eh-nota">Será preenchida</div></div>
+  </div>
+</div>
+
+<div class="header">
+  <div class="gem-tag">Nível 3 — Avançado</div>
+  <h1>Língua Portuguesa</h1>
+  <p>Capítulos 4 e 5 · 21 questões com gabarito</p>
+</div>
+
+<div class="wrap">
+<div class="print-btn-wrap"><button class="print-btn" onclick="window.print()">🖨️ Imprimir Avaliação</button></div>
+<div class="hud">
+  <div class="hud-item"><div class="hud-label">Pontos</div><div class="hud-val purple" id="scoreDisplay">0</div></div>
+  <div class="hud-item"><div class="hud-label">Total</div><div class="hud-val teal">21</div></div>
+  <div class="hud-item"><div class="hud-label">Acertos</div><div class="hud-val gold" id="pctDisplay">0%</div></div>
+</div>
+
+<!-- Q1 word builder -->
+<div class="card" id="q1">
+  <div class="q-header"><span class="q-num">Q1</span><span class="q-type">Organização de frases</span><span class="q-pts">+1pt</span></div>
+  <div class="q-text">Monte a frase correta tocando nas palavras:<br><span class="hl">"Os pais aplaudiram a filha com carinho."</span></div>
+  <div class="q-hint">💡 <strong>Dica:</strong> Sujeito (quem?) + Verbo (o que fez?) + Complemento (o quê / como?)</div>
+  <div class="word-pool" id="pool-q1">
+    <div class="word-chip" data-q="q1">aplaudiram</div>
+    <div class="word-chip" data-q="q1">Os</div>
+    <div class="word-chip" data-q="q1">carinho</div>
+    <div class="word-chip" data-q="q1">pais</div>
+    <div class="word-chip" data-q="q1">a</div>
+    <div class="word-chip" data-q="q1">com</div>
+    <div class="word-chip" data-q="q1">filha</div>
+  </div>
+  <div class="sentence-box" id="sent-q1"></div>
+  <button class="check-btn" id="sbtn-q1">Verificar frase ✓</button>
+  <div class="feedback" id="fb-q1"></div>
+</div>
+
+<!-- Q2 word builder -->
+<div class="card" id="q2">
+  <div class="q-header"><span class="q-num">Q2</span><span class="q-type">Organização de frases</span><span class="q-pts">+1pt</span></div>
+  <div class="q-text">Monte a frase:<br><span class="hl">"A criança tocou o violino na festa."</span></div>
+  <div class="q-hint">💡 <strong>Dica:</strong> Quem + Verbo + O quê + Onde</div>
+  <div class="word-pool" id="pool-q2">
+    <div class="word-chip" data-q="q2">violino</div>
+    <div class="word-chip" data-q="q2">A</div>
+    <div class="word-chip" data-q="q2">festa</div>
+    <div class="word-chip" data-q="q2">criança</div>
+    <div class="word-chip" data-q="q2">o</div>
+    <div class="word-chip" data-q="q2">tocou</div>
+    <div class="word-chip" data-q="q2">na</div>
+  </div>
+  <div class="sentence-box" id="sent-q2"></div>
+  <button class="check-btn" id="sbtn-q2">Verificar frase ✓</button>
+  <div class="feedback" id="fb-q2"></div>
+</div>
+
+<!-- Q3 blank sílaba -->
+<div class="card" id="q3">
+  <div class="q-header"><span class="q-num">Q3</span><span class="q-type">Sílaba tônica</span><span class="q-pts">+1pt</span></div>
+  <div class="q-text">Separe a palavra <span class="hl">"lâmpada"</span> em sílabas e escreva a sílaba tônica:</div>
+  <div class="q-hint">💡 <strong>Dica:</strong> Bata palmas. Proparoxítonas têm força na antepenúltima sílaba.</div>
+  <input class="blank-input" id="inp-q3" placeholder="Ex: lam">
+  <button class="check-btn" id="btn-q3">Verificar ✓</button>
+  <div class="feedback" id="fb-q3"></div>
+</div>
+
+<!-- Q4 multiple choice sílaba -->
+<div class="card" id="q4">
+  <div class="q-header"><span class="q-num">Q4</span><span class="q-type">Sílaba tônica e acento</span><span class="q-pts">+1pt</span></div>
+  <div class="q-text">Qual das palavras abaixo é <span class="hl">oxítona</span> (força na última sílaba)?</div>
+  <div class="options">
+    <button class="opt-btn" data-q="q4" data-correct="false" data-msg="Errado! Violino é paroxítona — força em vi-o-LI-no (penúltima sílaba)." data-tip="💡 Sacada: oxítona = última sílaba mais forte. Ex: café, cipó, maracujá.">violino</button>
+    <button class="opt-btn" data-q="q4" data-correct="false" data-msg="Errado! Música é proparoxítona — força em MÚ-si-ca (antepenúltima)." data-tip="💡 Sacada: proparoxítonas sempre têm acento!">música</button>
+    <button class="opt-btn" data-q="q4" data-correct="true" data-msg="Correto! Ma-ra-cu-JÁ → a última sílaba é a mais forte = oxítona!" data-tip="">maracujá</button>
+    <button class="opt-btn" data-q="q4" data-correct="false" data-msg="Errado! Menina é paroxítona — força em me-NI-na (penúltima sílaba)." data-tip="💡 Sacada: palavras terminadas em -ina, -ela, -ado geralmente são paroxítonas.">menina</button>
+  </div>
+  <div class="feedback" id="fb-q4"></div>
+</div>
+
+<!-- Q5 acento circunflexo -->
+<div class="card" id="q5">
+  <div class="q-header"><span class="q-num">Q5</span><span class="q-type">Acentos gráficos</span><span class="q-pts">+1pt</span></div>
+  <div class="q-text">Qual acento gráfico aparece na palavra <span class="hl">"você"</span> e por quê?</div>
+  <div class="options">
+    <button class="opt-btn" data-q="q5" data-correct="false" data-msg="Errado! O acento agudo (´) indica vogal aberta. Em 'você' a vogal ê é fechada." data-tip="💡 Sacada: acento agudo = vogal aberta (á, é, í, ó, ú). Circunflexo = vogal fechada (â, ê, ô).">Acento agudo, porque a vogal é aberta.</button>
+    <button class="opt-btn" data-q="q5" data-correct="true" data-msg="Perfeito! Circunflexo (^) em você porque o ê é uma vogal fechada. Vo-CÊ = oxítona com vogal fechada!" data-tip="">Acento circunflexo, porque a vogal ê é fechada.</button>
+    <button class="opt-btn" data-q="q5" data-correct="false" data-msg="Errado! Você tem acento circunflexo no ê. O til aparece em palavras como: mãe, limão, irmã." data-tip="💡 Sacada: til (~) indica nasalização. Circunflexo (^) indica vogal fechada.">Til, porque a vogal é nasal.</button>
+  </div>
+  <div class="feedback" id="fb-q5"></div>
+</div>
+
+<!-- Q6 blank sílaba tônica -->
+<div class="card" id="q6">
+  <div class="q-header"><span class="q-num">Q6</span><span class="q-type">Sílaba tônica</span><span class="q-pts">+1pt</span></div>
+  <div class="q-text">A palavra <span class="hl">"café"</span> é oxítona, paroxítona ou proparoxítona?</div>
+  <div class="q-hint">💡 <strong>Dica:</strong> Identifique onde está a sílaba mais forte: última, penúltima ou antepenúltima.</div>
+  <input class="blank-input" id="inp-q6" placeholder="oxítona / paroxítona / proparoxítona">
+  <button class="check-btn" id="btn-q6">Verificar ✓</button>
+  <div class="feedback" id="fb-q6"></div>
+</div>
+
+<!-- Q7 blank substantivo -->
+<div class="card" id="q7">
+  <div class="q-header"><span class="q-num">Q7</span><span class="q-type">Substantivo simples e composto</span><span class="q-pts">+1pt</span></div>
+  <div class="q-text">Una as palavras para formar um substantivo composto:<br><span class="hl">pé + de + moleque = ?</span></div>
+  <div class="q-hint">💡 <strong>Dica:</strong> Substantivos compostos com preposição geralmente usam hífen entre as partes.</div>
+  <input class="blank-input" id="inp-q7" placeholder="Digite o substantivo composto">
+  <button class="check-btn" id="btn-q7">Verificar ✓</button>
+  <div class="feedback" id="fb-q7"></div>
+</div>
+
+<!-- Q8 multiple choice substantivo -->
+<div class="card" id="q8">
+  <div class="q-header"><span class="q-num">Q8</span><span class="q-type">Substantivo simples e composto</span><span class="q-pts">+1pt</span></div>
+  <div class="q-text">Qual alternativa contém apenas <span class="hl">substantivos simples</span>?</div>
+  <div class="options">
+    <button class="opt-btn" data-q="q8" data-correct="true" data-msg="Correto! Menina, música, casa, violino — todos formados por uma palavra só = simples!" data-tip="">menina · música · casa · violino</button>
+    <button class="opt-btn" data-q="q8" data-correct="false" data-msg="Errado! Guarda-chuva e girassol são compostos. Só casa e violino são simples." data-tip="💡 Sacada: guarda-chuva (duas palavras) e girassol (gira+sol) são compostos!">guarda-chuva · casa · girassol · violino</button>
+    <button class="opt-btn" data-q="q8" data-correct="false" data-msg="Errado! Pé-de-moleque e couve-flor são compostos!" data-tip="💡 Sacada: hífen é sinal de substantivo composto!">pé-de-moleque · couve-flor · casa · música</button>
+  </div>
+  <div class="feedback" id="fb-q8"></div>
+</div>
+
+<!-- Q9 monossílabos blank -->
+<div class="card" id="q9">
+  <div class="q-header"><span class="q-num">Q9</span><span class="q-type">Monossílabos tônicos e átonos</span><span class="q-pts">+1pt</span></div>
+  <div class="q-text">Na frase <span class="hl">"Ele deu pá a mim."</span><br>Escreva os monossílabos <strong>tônicos</strong> presentes na frase:</div>
+  <div class="q-hint">💡 <strong>Dica:</strong> Tônico = força na pronúncia + significado próprio. Átono = fraco, palavrinha de ligação.</div>
+  <input class="blank-input" id="inp-q9" placeholder="Separe por vírgula">
+  <button class="check-btn" id="btn-q9">Verificar ✓</button>
+  <div class="feedback" id="fb-q9"></div>
+</div>
+
+<!-- Q10 monossílabos multiple choice -->
+<div class="card" id="q10">
+  <div class="q-header"><span class="q-num">Q10</span><span class="q-type">Monossílabos tônicos e átonos</span><span class="q-pts">+1pt</span></div>
+  <div class="q-text">Por que a palavra <span class="hl">"dê"</span> recebe acento gráfico, mas <span class="hl">"de"</span> não recebe?</div>
+  <div class="options">
+    <button class="opt-btn" data-q="q10" data-correct="false" data-msg="Errado! O acento não é por causa do tamanho da palavra. É por causa do significado e força." data-tip="💡 Sacada: monossílabos tônicos recebem acento para diferenciá-los dos átonos.">Porque dê tem mais letras.</button>
+    <button class="opt-btn" data-q="q10" data-correct="true" data-msg="Correto! Dê (verbo = tônico, forte) recebe acento para diferenciar de de (preposição = átona, fraca)." data-tip="">Porque dê é tônico (verbo) e de é átono (preposição).</button>
+    <button class="opt-btn" data-q="q10" data-correct="false" data-msg="Errado! O acento não depende de ser começo ou fim. Depende de ser tônico ou átono." data-tip="💡 Sacada: a diferença é o significado: dê = verbo dar. de = preposição de ligação.">Porque dê fica no começo da frase.</button>
+  </div>
+  <div class="feedback" id="fb-q10"></div>
+</div>
+
+<!-- Q11 instrução blank -->
+<div class="card" id="q11">
+  <div class="q-header"><span class="q-num">Q11</span><span class="q-type">Instruções de montagem</span><span class="q-pts">+1pt</span></div>
+  <div class="q-text">Complete o passo da instrução com um verbo de comando:<br><span class="hl">"___ o fio pelo furo da tampa."</span></div>
+  <div class="q-hint">💡 <strong>Dica:</strong> Verbos de comando do bilboquê: Corte, Cole, Faça, Passe, Amarre, Fixe</div>
+  <input class="blank-input" id="inp-q11" placeholder="Digite um verbo de comando">
+  <button class="check-btn" id="btn-q11">Verificar ✓</button>
+  <div class="feedback" id="fb-q11"></div>
+</div>
+
+<!-- Q12 instrução multiple choice -->
+<div class="card" id="q12">
+  <div class="q-header"><span class="q-num">Q12</span><span class="q-type">Instruções de montagem</span><span class="q-pts">+1pt</span></div>
+  <div class="q-text">Qual das opções apresenta corretamente a <span class="hl">estrutura</span> de um texto de instrução?</div>
+  <div class="options">
+    <button class="opt-btn" data-q="q12" data-correct="false" data-msg="Errado! Texto de instrução não tem personagens nem enredo. Tem título, materiais e passos." data-tip="💡 Sacada: texto narrativo tem personagens. Texto de instrução tem passos e materiais!">Personagens · Enredo · Conflito · Solução</button>
+    <button class="opt-btn" data-q="q12" data-correct="true" data-msg="Perfeito! Título + Lista de materiais (substantivos) + Modo de fazer (verbos de comando) = instrução completa!" data-tip="">Título · Lista de materiais · Modo de fazer</button>
+    <button class="opt-btn" data-q="q12" data-correct="false" data-msg="Errado! Início, meio e fim é a estrutura de textos narrativos como contos e histórias." data-tip="💡 Sacada: O Violino = narrativo (início/meio/fim). Bilboquê = instrução (materiais/passos).">Início · Meio · Fim</button>
+  </div>
+  <div class="feedback" id="fb-q12"></div>
+</div>
+
+<!-- Q13 instrução blank verbos -->
+<div class="card" id="q13">
+  <div class="q-header"><span class="q-num">Q13</span><span class="q-type">Instruções de montagem</span><span class="q-pts">+1pt</span></div>
+  <div class="q-text">Escreva dois verbos de comando que podem aparecer em uma instrução de montagem:</div>
+  <div class="q-hint">💡 <strong>Dica:</strong> São verbos no imperativo: Corte, Cole, Faça, Passe, Amarre, Use, Fixe, Dobre...</div>
+  <input class="blank-input" id="inp-q13" placeholder="Ex: Corte, Cole">
+  <button class="check-btn" id="btn-q13">Verificar ✓</button>
+  <div class="feedback" id="fb-q13"></div>
+</div>
+
+<!-- Q14 SS blank -->
+<div class="card" id="q14">
+  <div class="q-header"><span class="q-num">Q14</span><span class="q-type">Uso do SS</span><span class="q-pts">+1pt</span></div>
+  <div class="q-text">Preencha os espaços com <span class="hl">S</span> ou <span class="hl">SS</span>:<br><br>
+  1. profe__ora &nbsp;&nbsp; 2. pa__ou &nbsp;&nbsp; 3. ca__a<br>
+  <small style="opacity:0.5;">Escreva as respostas na ordem: 1, 2, 3</small></div>
+  <div class="q-hint">💡 <strong>Dica:</strong> Vogal + ___ + vogal: se o som é S = use SS · se o som é Z = use S simples</div>
+  <input class="blank-input" id="inp-q14" placeholder="Ex: ss, ss, s">
+  <button class="check-btn" id="btn-q14">Verificar ✓</button>
+  <div class="feedback" id="fb-q14"></div>
+</div>
+
+<!-- Q15 SS multiple choice -->
+<div class="card" id="q15">
+  <div class="q-header"><span class="q-num">Q15</span><span class="q-type">Uso do SS</span><span class="q-pts">+1pt</span></div>
+  <div class="q-text">Por que <span class="hl">"assar"</span> se escreve com SS e não com S simples?</div>
+  <div class="options">
+    <button class="opt-btn" data-q="q15" data-correct="false" data-msg="Errado! A posição na frase não determina o uso de SS. O que importa são as letras em volta do S." data-tip="💡 Sacada: SS é determinado pelo contexto fonético — vogal+SS+vogal = som de S!">Porque está no final da frase.</button>
+    <button class="opt-btn" data-q="q15" data-correct="true" data-msg="Perfeito! A-SS-ar → vogal A + SS + vogal A. Entre duas vogais com som de S = usa SS!" data-tip="">Porque o SS está entre duas vogais para manter o som de S.</button>
+    <button class="opt-btn" data-q="q15" data-correct="false" data-msg="Errado! SS pode aparecer em qualquer posição desde que esteja entre duas vogais." data-tip="💡 Sacada: SS sempre entre vogais — não importa se é começo, meio ou fim da sílaba!">Porque SS só aparece no começo das palavras.</button>
+  </div>
+  <div class="feedback" id="fb-q15"></div>
+</div>
+
+<!-- Q16 SS família -->
+<div class="card" id="q16">
+  <div class="q-header"><span class="q-num">Q16</span><span class="q-type">Uso do SS</span><span class="q-pts">+1pt</span></div>
+  <div class="q-text">Escreva duas palavras da família de <span class="hl">"osso"</span> que também usam SS:</div>
+  <div class="q-hint">💡 <strong>Dica:</strong> Família de osso: ossada, ossatura, desossar, ossinho...</div>
+  <input class="blank-input" id="inp-q16" placeholder="Ex: ossada, ossatura">
+  <button class="check-btn" id="btn-q16">Verificar ✓</button>
+  <div class="feedback" id="fb-q16"></div>
+</div>
+
+<!-- Q17 adjetivo blank -->
+<div class="card" id="q17">
+  <div class="q-header"><span class="q-num">Q17</span><span class="q-type">Adjetivos</span><span class="q-pts">+1pt</span></div>
+  <div class="q-text">Na frase <span class="hl">"O violino antigo produziu um som bonito."</span><br>Escreva os dois adjetivos presentes:</div>
+  <div class="q-hint">💡 <strong>Dica:</strong> Adjetivos caracterizam o substantivo. Pergunte: como é o violino? Como é o som?</div>
+  <input class="blank-input" id="inp-q17" placeholder="Separe por vírgula">
+  <button class="check-btn" id="btn-q17">Verificar ✓</button>
+  <div class="feedback" id="fb-q17"></div>
+</div>
+
+<!-- Q18 locução adjetiva blank -->
+<div class="card" id="q18">
+  <div class="q-header"><span class="q-num">Q18</span><span class="q-type">Locuções adjetivas</span><span class="q-pts">+1pt</span></div>
+  <div class="q-text">Transforme o adjetivo em locução adjetiva:<br><span class="hl">"chinelo plástico"</span> → <span class="hl">"chinelo ___ ___"</span></div>
+  <div class="q-hint">💡 <strong>Dica:</strong> Locução adjetiva = de + material/característica. Plástico → de plástico.</div>
+  <input class="blank-input" id="inp-q18" placeholder="de + palavra">
+  <button class="check-btn" id="btn-q18">Verificar ✓</button>
+  <div class="feedback" id="fb-q18"></div>
+</div>
+
+<!-- Q19 adjetivo multiple choice -->
+<div class="card" id="q19">
+  <div class="q-header"><span class="q-num">Q19</span><span class="q-type">Adjetivos e locuções</span><span class="q-pts">+1pt</span></div>
+  <div class="q-text">Qual das alternativas contém uma <span class="hl">locução adjetiva</span>?</div>
+  <div class="options">
+    <button class="opt-btn" data-q="q19" data-correct="false" data-msg="Errado! Bonito, velho e grande são adjetivos simples — uma palavra só cada um." data-tip="💡 Sacada: adjetivo simples = uma palavra. Locução adjetiva = duas ou mais!">chinelo bonito · pé velho · barco grande</button>
+    <button class="opt-btn" data-q="q19" data-correct="true" data-msg="Correto! De madeira = locução adjetiva (preposição DE + substantivo MADEIRA)!" data-tip="">barco de madeira</button>
+    <button class="opt-btn" data-q="q19" data-correct="false" data-msg="Errado! Novo e antigo são adjetivos simples — uma palavra só." data-tip="💡 Sacada: locução adjetiva sempre tem preposição + substantivo. Ex: de + coisa.">violino novo · chinelo antigo</button>
+  </div>
+  <div class="feedback" id="fb-q19"></div>
+</div>
+
+<!-- Q20 análise geral -->
+<div class="card" id="q20">
+  <div class="q-header"><span class="q-num">Q20</span><span class="q-type">Análise geral</span><span class="q-pts">+1pt</span></div>
+  <div class="q-text">Analise a frase: <span class="hl">"O menino comprou um guarda-chuva de pano."</span><br>Identifique: qual é o substantivo composto e qual é a locução adjetiva?</div>
+  <div class="options">
+    <button class="opt-btn" data-q="q20" data-correct="true" data-msg="Perfeito! Guarda-chuva = substantivo composto (guarda+chuva). De pano = locução adjetiva (de + pano)!" data-tip="">Composto: guarda-chuva · Locução: de pano</button>
+    <button class="opt-btn" data-q="q20" data-correct="false" data-msg="Errado! Menino é substantivo simples, não composto. E comprou é verbo, não locução adjetiva." data-tip="💡 Sacada: composto = duas palavras formando um nome. Locução adjetiva = de + substantivo.">Composto: menino · Locução: comprou</button>
+    <button class="opt-btn" data-q="q20" data-correct="false" data-msg="Errado! De pano é locução adjetiva (caracteriza o guarda-chuva), não substantivo composto." data-tip="💡 Sacada: locução adjetiva descreve. Substantivo composto nomeia uma coisa.">Composto: de pano · Locução: guarda-chuva</button>
+  </div>
+  <div class="feedback" id="fb-q20"></div>
+</div>
+
+<!-- Q21 desafio final -->
+<div class="card" id="q21">
+  <div class="q-header"><span class="q-num">Q21</span><span class="q-type">Desafio final</span><span class="q-pts">+1pt</span></div>
+  <div class="q-text">Escreva uma frase completa usando:<br>• Um <span class="hl">substantivo composto</span><br>• Um <span class="hl">adjetivo</span> ou <span class="hl">locução adjetiva</span><br>• Um <span class="hl">verbo de ação</span></div>
+  <div class="q-hint">💡 <strong>Dica:</strong> Ex: "O guarda-chuva de pano [verbo] no armário." Use sua criatividade!</div>
+  <input class="blank-input" id="inp-q21" placeholder="Escreva sua frase aqui">
+  <button class="check-btn" id="btn-q21">Verificar ✓</button>
+  <div class="feedback" id="fb-q21"></div>
+</div>
+
+<button class="finish-btn" id="finishBtn">Finalizar e ver gabarito 🏆</button>
+
+<div class="result-panel" id="resultPanel">
+  <div class="result-big" id="resultEmoji">💎</div>
+  <div class="result-grade" id="resultGrade"></div>
+  <div class="result-grade-label" style="font-size:0.75rem;opacity:0.55;margin-bottom:2px;">pontos</div>
+  <div class="result-grade-label" id="resultGradeLabel"></div>
+  <div class="result-msg" id="resultMsg"></div>
+  <div class="result-score" id="resultScore"></div>
+  <div class="result-actions">
+    <button class="retry-btn" onclick="location.reload()">Tentar novamente 🔄</button>
+    <a href="gabarito.html" class="gabarito-link">📋 Ver Gabarito</a>
+  </div>
+  <button class="gabarito-toggle" id="gabBtn">📋 Ver Gabarito Completo com Explicações</button>
+  <div class="gabarito-section" id="gabSection">
+    <div class="g-title">📋 Gabarito — Nível 3 Avançado</div>
+    <div class="g-item"><div class="g-q">Q1 — Monte a frase</div><div class="g-a">Os pais aplaudiram a filha com carinho.</div><div class="g-exp">Sujeito (Os pais) + Verbo (aplaudiram) + Complemento (a filha com carinho).</div></div>
+    <div class="g-item"><div class="g-q">Q2 — Monte a frase</div><div class="g-a">A criança tocou o violino na festa.</div><div class="g-exp">Quem (A criança) + O que fez (tocou) + O quê (o violino) + Onde (na festa).</div></div>
+    <div class="g-item"><div class="g-q">Q3 — Sílaba tônica</div><div class="g-a">lam (LÂM-pa-da)</div><div class="g-exp">Proparoxítona: força na antepenúltima sílaba. Sempre recebe acento!</div></div>
+    <div class="g-item"><div class="g-q">Q4 — Oxítona</div><div class="g-a">maracujá</div><div class="g-exp">Ma-ra-cu-JÁ = força na última sílaba = oxítona. Recebe acento agudo.</div></div>
+    <div class="g-item"><div class="g-q">Q5 — Acento em você</div><div class="g-a">Acento circunflexo — vogal ê fechada</div><div class="g-exp">Circunflexo (^) = vogal fechada (ê, â, ô). Agudo (´) = vogal aberta.</div></div>
+    <div class="g-item"><div class="g-q">Q6 — Café é...</div><div class="g-a">Oxítona</div><div class="g-exp">Ca-FÉ = força na última sílaba. Oxítona com acento agudo.</div></div>
+    <div class="g-item"><div class="g-q">Q7 — Substantivo composto</div><div class="g-a">pé-de-moleque</div><div class="g-exp">Três palavras unidas com hífen = substantivo composto.</div></div>
+    <div class="g-item"><div class="g-q">Q8 — Apenas simples</div><div class="g-a">menina · música · casa · violino</div><div class="g-exp">Todos formados por uma palavra só = substantivos simples.</div></div>
+    <div class="g-item"><div class="g-q">Q9 — Monossílabos tônicos</div><div class="g-a">deu, pá, mim</div><div class="g-exp">Deu (verbo) + pá (ferramenta) + mim (pronome tônico) = tônicos. A e a = átonos.</div></div>
+    <div class="g-item"><div class="g-q">Q10 — Dê × de</div><div class="g-a">Dê = tônico (verbo) · de = átono (preposição)</div><div class="g-exp">O acento diferencia o verbo (dê) da preposição (de). Tônico recebe acento para diferenciar.</div></div>
+    <div class="g-item"><div class="g-q">Q11 — Verbo de comando</div><div class="g-a">Passe (ou: Coloque, Enfie, Insira)</div><div class="g-exp">Verbos no imperativo que fazem sentido: Passe o fio pelo furo da tampa.</div></div>
+    <div class="g-item"><div class="g-q">Q12 — Estrutura da instrução</div><div class="g-a">Título · Lista de materiais · Modo de fazer</div><div class="g-exp">Texto de instrução tem título + materiais (substantivos) + passos (verbos de comando).</div></div>
+    <div class="g-item"><div class="g-q">Q13 — Verbos de comando</div><div class="g-a">Qualquer dois: Corte, Cole, Faça, Passe, Amarre, Use, Fixe, Dobre</div><div class="g-exp">Verbos no imperativo que ordenam ações nos passos da instrução.</div></div>
+    <div class="g-item"><div class="g-q">Q14 — S ou SS</div><div class="g-a">professora · passou · casa (ss, ss, s)</div><div class="g-exp">Profe-SS-ora (vogal+SS+vogal) · pa-SS-ou (vogal+SS+vogal) · ca-S-a (vogal+S+vogal = som Z).</div></div>
+    <div class="g-item"><div class="g-q">Q15 — Por que assar tem SS</div><div class="g-a">SS entre duas vogais para manter som de S</div><div class="g-exp">A-SS-ar: vogal A + SS + vogal A. S simples entre vogais soaria como Z (azár).</div></div>
+    <div class="g-item"><div class="g-q">Q16 — Família de osso</div><div class="g-a">ossada, ossatura (ou: ossinho, desossar)</div><div class="g-exp">Toda a família de osso mantém SS: ossada, ossatura, ossinho, desossar.</div></div>
+    <div class="g-item"><div class="g-q">Q17 — Adjetivos na frase</div><div class="g-a">antigo, bonito</div><div class="g-exp">Antigo (como é o violino?) + bonito (como é o som?) = dois adjetivos simples.</div></div>
+    <div class="g-item"><div class="g-q">Q18 — Transformar em locução</div><div class="g-a">chinelo de plástico</div><div class="g-exp">Plástico (adjetivo) → de plástico (locução adjetiva: preposição DE + substantivo).</div></div>
+    <div class="g-item"><div class="g-q">Q19 — Locução adjetiva</div><div class="g-a">barco de madeira</div><div class="g-exp">De madeira = preposição DE + substantivo MADEIRA = locução adjetiva.</div></div>
+    <div class="g-item"><div class="g-q">Q20 — Análise geral</div><div class="g-a">Composto: guarda-chuva · Locução: de pano</div><div class="g-exp">Guarda-chuva (duas palavras = composto). De pano (de + pano = locução adjetiva).</div></div>
+    <div class="g-item"><div class="g-q">Q21 — Desafio criativo</div><div class="g-a">Resposta pessoal — veja a dica!</div><div class="g-exp">Exemplo: O guarda-chuva de pano caiu no chão molhado. (guarda-chuva=composto · de pano=locução · caiu=verbo)</div></div>
+  </div>
+</div>
+
+<div class="bottom-nav">
+  <a href="nivel2_intermediario.html" class="btn-prev">← Nível 2</a>
+  <a href="index.html" class="btn-home-only">🏠</a>
+  <a href="gabarito.html" class="btn-next">📋 Gabarito →</a>
+</div>
+</div></div>
+
+<div class="credit">Desenvolvido por <strong>Jhony Beraldo</strong></div>
+
+<script>
+var score = 0;
+var answered = {};
+var total = 21;
+
+function updateHUD() {
+  document.getElementById('scoreDisplay').textContent = score;
+  document.getElementById('pctDisplay').textContent = Math.round((score / total) * 100) + '%';
+}
+
+function showFeedback(qid, isCorrect, okMsg, nokMsg, tipMsg) {
+  var fb = document.getElementById('fb-' + qid);
+  if (isCorrect) {
+    fb.innerHTML = '<span class="fb-answer">✅ ' + okMsg + '</span>';
+    fb.className = 'feedback show ok';
+  } else {
+    fb.innerHTML = '<span class="fb-answer">❌ ' + nokMsg + '</span>' + (tipMsg ? '<span class="fb-tip">' + tipMsg + '</span>' : '');
+    fb.className = 'feedback show nok';
+  }
+}
+
+document.querySelectorAll('.opt-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var qid = btn.dataset.q;
+    if (answered[qid]) return;
+    answered[qid] = true;
+    var correct = btn.dataset.correct === 'true';
+    document.getElementById(qid).querySelectorAll('.opt-btn').forEach(function(b) { b.classList.add('disabled'); });
+    if (correct) {
+      btn.classList.add('correct'); score++; updateHUD();
+      showFeedback(qid, true, btn.dataset.msg, '', '');
+    } else {
+      btn.classList.add('wrong');
+      showFeedback(qid, false, '', btn.dataset.msg, btn.dataset.tip);
+    }
+  });
+});
+
+var blankCfg = {
+  'q3':  { accepts: ['lam','lâm'], ok: 'LÂM é a sílaba tônica de lâmpada! Proparoxítona → força na antepenúltima.', nok: 'Resposta: lam (LÂM-pa-da).', tip: '💡 Sacada: proparoxítonas sempre têm acento na antepenúltima sílaba!' },
+  'q6':  { accepts: ['oxítona'], ok: 'Correto! Ca-FÉ → força na última sílaba = oxítona!', nok: 'Resposta: oxítona.', tip: '💡 Sacada: café tem força em FÉ (última) → oxítona. Recebe acento agudo.' },
+  'q7':  { accepts: ['pé-de-moleque'], ok: 'Perfeito! Pé-de-moleque = substantivo composto com três palavras e hífen!', nok: 'Resposta: pé-de-moleque.', tip: '💡 Sacada: compostos com preposição ficam unidos por hífen!' },
+  'q9':  { accepts: ['deu, pá, mim','deu,pá,mim','pá, deu, mim','pá,deu,mim'], ok: 'Correto! Deu (verbo), pá (objeto), mim (pronome tônico) = tônicos!', nok: 'Resposta: deu, pá, mim.', tip: '💡 Sacada da professora: tônico = sentido próprio + autonomia. Tente falar sozinho: pá ✓ · deu ✓ · mim ✓ · a ✗' },
+  'q11': { accepts: ['passe','coloque','enfie','insira','amarre'], ok: 'Ótimo! Verbo de comando no imperativo — diz o que fazer no passo!', nok: 'Sugestão: Passe o fio pelo furo da tampa.', tip: '💡 Sacada: qualquer verbo no imperativo (Passe, Coloque, Enfie) funciona!' },
+  'q13': { accepts: ['corte, cole','corte,cole','cole, corte','faça, cole','corte, faça','faça, corte','passe, corte','passe, cole'], ok: 'Perfeito! Verbos de comando no imperativo para passos de montagem!', nok: 'Sugestão: Corte, Cole (ou qualquer dois: Faça, Passe, Amarre, Dobre).', tip: '💡 Sacada: verbos de instrução estão sempre no imperativo — ordens diretas!' },
+  'q14': { accepts: ['ss, ss, s','ss,ss,s','ss,ss, s'], ok: 'Correto! profeSSora (vogal+SS+vogal = som S) · paSSou (vogal+SS+vogal = som S) · caSa (vogal+S+vogal = som Z = caza).', nok: 'Resposta: ss, ss, s — professora e passou usam SS; casa usa S simples (som de Z).', tip: '💡 Sacada: SS = som de S entre vogais. S simples entre vogais = som de Z!' },
+  'q16': { accepts: ['ossada, ossatura','ossada,ossatura','ossinho, ossada','ossatura, ossinho','ossada, ossinho'], ok: 'Ótimo! A família de osso sempre mantém o SS!', nok: 'Sugestão: ossada, ossatura (ou ossinho, desossar).', tip: '💡 Sacada: se a palavra raiz tem SS, toda a família usa SS!' },
+  'q17': { accepts: ['antigo, bonito','antigo,bonito','bonito, antigo','bonito,antigo'], ok: 'Perfeito! Antigo (como é o violino?) + bonito (como é o som?) = dois adjetivos!', nok: 'Resposta: antigo, bonito.', tip: '💡 Sacada: adjetivo responde à pergunta como é o substantivo?' },
+  'q18': { accepts: ['de plástico'], ok: 'Correto! Plástico → de plástico. Preposição DE + substantivo = locução adjetiva!', nok: 'Resposta: de plástico.', tip: '💡 Sacada: locução adjetiva = DE + material/característica da coisa!' },
+  'q21': { accepts: ['__any__'], ok: 'Parabéns pela frase criativa! O importante é ter: substantivo composto + adjetivo/locução + verbo de ação.', nok: 'Resposta pessoal! Ex: O guarda-chuva de pano caiu no chão.', tip: '💡 Sacada: qualquer frase com os três elementos é válida — seja criativo!' },
+};
+
+Object.keys(blankCfg).forEach(function(qid) {
+  var btn = document.getElementById('btn-' + qid);
+  if (!btn) return;
+  btn.addEventListener('click', function() {
+    if (answered[qid]) return;
+    answered[qid] = true;
+    btn.disabled = true;
+    var inp = document.getElementById('inp-' + qid);
+    var val = inp.value.trim().toLowerCase().replace(/[.!?]$/, '');
+    var cfg = blankCfg[qid];
+    var correct = false;
+    if (cfg.accepts[0] === '__any__') {
+      correct = val.length > 5;
+    } else {
+      correct = cfg.accepts.map(function(a) { return a.toLowerCase(); }).indexOf(val) !== -1;
+    }
+    if (correct) {
+      inp.classList.add('correct-input'); score++; updateHUD();
+      showFeedback(qid, true, cfg.ok, '', '');
+    } else {
+      inp.classList.add('wrong-input');
+      showFeedback(qid, false, '', cfg.nok, cfg.tip);
+    }
+  });
+});
+
+// word builder
+document.querySelectorAll('.word-chip').forEach(function(chip) {
+  chip.addEventListener('click', function() {
+    if (chip.classList.contains('used')) return;
+    var qid = chip.dataset.q;
+    chip.classList.add('used');
+    var box = document.getElementById('sent-' + qid);
+    var placed = document.createElement('div');
+    placed.className = 'placed-chip';
+    placed.textContent = chip.textContent;
+    placed.addEventListener('click', function() { placed.remove(); chip.classList.remove('used'); });
+    box.appendChild(placed);
+  });
+});
+
+var sentCorrect = {
+  'q1': { answer: 'os pais aplaudiram a filha com carinho', ok: 'Os pais (sujeito) + aplaudiram (verbo) + a filha com carinho (complemento).', nok: 'Resposta: Os pais aplaudiram a filha com carinho.', tip: '💡 Sacada: sujeito + verbo + complemento = frase completa!' },
+  'q2': { answer: 'a criança tocou o violino na festa', ok: 'A criança (sujeito) + tocou (verbo) + o violino na festa (complemento).', nok: 'Resposta: A criança tocou o violino na festa.', tip: '💡 Sacada: sempre organize: quem fez + o que fez + onde/como fez!' }
+};
+
+['q1','q2'].forEach(function(qid) {
+  var btn = document.getElementById('sbtn-' + qid);
+  if (!btn) return;
+  btn.addEventListener('click', function() {
+    if (answered[qid]) return;
+    answered[qid] = true;
+    btn.disabled = true;
+    var box = document.getElementById('sent-' + qid);
+    var chips = box.querySelectorAll('.placed-chip');
+    var sentence = Array.from(chips).map(function(c) { return c.textContent; }).join(' ').toLowerCase().replace(/[.!?]$/, '');
+    var cfg = sentCorrect[qid];
+    if (sentence === cfg.answer) {
+      chips.forEach(function(c) { c.style.background='rgba(52,211,153,0.25)'; c.style.pointerEvents='none'; });
+      score++; updateHUD();
+      showFeedback(qid, true, cfg.ok, '', '');
+    } else {
+      chips.forEach(function(c) { c.style.background='rgba(248,113,113,0.2)'; c.style.pointerEvents='none'; });
+      showFeedback(qid, false, '', cfg.nok, cfg.tip);
+    }
+  });
+});
+
+document.getElementById('finishBtn').addEventListener('click', function() {
+  var panel = document.getElementById('resultPanel');
+  panel.classList.add('show');
+  var nota = Math.round((score / total) * 100);
+  var emoji, msg, gradeLabel;
+  if (nota === 100)     { emoji = '💎'; msg = 'Perfeito absoluto! Você dominou o nível avançado! 🌟'; gradeLabel = 'PERFEITO!'; }
+  else if (nota >= 90)  { emoji = '🏆'; msg = 'Incrível! Quase tudo certo! Parabéns! 🎉'; gradeLabel = 'EXCELENTE!'; }
+  else if (nota >= 75)  { emoji = '⭐'; msg = 'Muito bom! Ainda dá pra melhorar mais!'; gradeLabel = 'MUITO BOM!'; }
+  else if (nota >= 60)  { emoji = '💪'; msg = 'Bom esforço! Revise o gabarito e tente novamente!'; gradeLabel = 'BOM!'; }
+  else if (nota >= 40)  { emoji = '📖'; msg = 'Continue estudando! Você está evoluindo!'; gradeLabel = 'PODE MAIS!'; }
+  else                   { emoji = '📚'; msg = 'Não desanime! Leia o resumo e vai arrasar! 💜'; gradeLabel = 'ESTUDE MAIS!'; }
+  document.getElementById('resultEmoji').textContent = emoji;
+  document.getElementById('resultGrade').textContent = score + ' / 21';
+  document.getElementById('resultGradeLabel').textContent = gradeLabel;
+  document.getElementById('resultMsg').textContent = msg;
+  document.getElementById('resultScore').textContent = score + ' de ' + total + ' questões corretas';
+  panel.scrollIntoView({ behavior: 'smooth' });
+});
+
+document.getElementById('gabBtn').addEventListener('click', function() {
+  document.getElementById('gabSection').classList.toggle('show');
+});
+</script>
+</body>
+</html>

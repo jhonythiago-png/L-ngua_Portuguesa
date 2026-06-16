@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<div class="top-nav">
+  <a href="index.html" class="nav-home">🏠 Início</a>
+  <span class="nav-title">⭐ Nível 1 — Básico</span>
+  <div style="width:70px;"></div>
+</div>
+
+<div class="exam-header">
+  <div class="eh-title">📝 Preencha antes de começar</div>
+  <div class="eh-grid">
+    <div class="eh-field"><label>Nome</label><input type="text" placeholder="Seu nome aqui"></div>
+    <div class="eh-field"><label>Data</label><input type="date"></div>
+    <div class="eh-field"><label>Turma</label><input type="text" placeholder="Ex: 4º A"></div>
+    <div class="eh-field"><label>Nota</label><div class="eh-nota">Será preenchida</div></div>
+  </div>
+</div>
+
+<div class="header">
+  <div class="level-tag">Nível 1 — Básico</div>
+  <h1>Língua Portuguesa</h1>
+  <p>Capítulos 4 e 5 · 14 questões</p>
+</div>
+
+<div class="wrap">
+<div class="print-btn-wrap"><button class="print-btn" onclick="window.print()">🖨️ Imprimir Avaliação</button></div>
+<div class="score-bar">
+  <span class="score-label">Pontos 🌟</span>
+  <span class="score-num" id="scoreDisplay">0 / 14</span>
+</div>
+
+<!-- Q1 -->
+<div class="card" id="q1">
+  <div class="q-num">1</div><div class="q-type">Organização de frases</div>
+  <div class="q-text">Qual das frases abaixo está organizada corretamente?</div>
+  <div class="options">
+    <button class="opt-btn" data-q="q1" data-correct="false" data-msg="Errado! As palavras estão misturadas, sem ordem. Uma frase precisa ter sujeito + verbo + complemento na ordem certa." data-tip="💡 Sacada: a frase deve responder Quem? + O que fez? + O quê?">violino a tocou menina o</button>
+    <button class="opt-btn" data-q="q1" data-correct="true" data-msg="Muito bem! Sujeito (A menina) + Verbo (tocou) + Complemento (o violino). Frase organizada!" data-tip="">A menina tocou o violino.</button>
+    <button class="opt-btn" data-q="q1" data-correct="false" data-msg="Errado! O verbo está no lugar errado. O correto é: A menina tocou o violino." data-tip="💡 Sacada: o verbo (ação) vem depois de quem faz e antes do que sofre a ação.">Tocou a menina violino o.</button>
+    <button class="opt-btn" data-q="q1" data-correct="false" data-msg="Errado! Falta o sujeito. Quem aplaudiu? A frase precisa dizer quem fez a ação." data-tip="💡 Sacada: toda frase completa tem um sujeito — quem realiza a ação.">Aplaudiu muito bonito hoje.</button>
+  </div>
+  <div class="feedback" id="fb-q1"></div>
+</div>
+
+<!-- Q2 -->
+<div class="card" id="q2">
+  <div class="q-num">2</div><div class="q-type">Organização de frases</div>
+  <div class="q-text">Na frase <strong>"Os pais compraram um violino."</strong>, o sujeito é:</div>
+  <div class="options">
+    <button class="opt-btn" data-q="q2" data-correct="false" data-msg="Errado! Violino é o complemento — o objeto da ação. O sujeito é quem fez a ação." data-tip="💡 Sacada: pergunte QUEM comprou? A resposta é o sujeito!">um violino</button>
+    <button class="opt-btn" data-q="q2" data-correct="true" data-msg="Correto! Os pais = sujeito, pois eles são quem praticou a ação de comprar." data-tip="">Os pais</button>
+    <button class="opt-btn" data-q="q2" data-correct="false" data-msg="Errado! Compraram é o verbo — a ação praticada. O sujeito é quem pratica essa ação." data-tip="💡 Sacada: verbo responde O QUE FEZ?, não QUEM FEZ?">compraram</button>
+  </div>
+  <div class="feedback" id="fb-q2"></div>
+</div>
+
+<!-- Q3 -->
+<div class="card" id="q3">
+  <div class="q-num">3</div><div class="q-type">Sílaba tônica</div>
+  <div class="q-text">Em qual sílaba a palavra <strong>"música"</strong> é pronunciada mais forte?</div>
+  <div class="options">
+    <button class="opt-btn" data-q="q3" data-correct="true" data-msg="Perfeito! MÚ-si-ca → a primeira sílaba é a mais forte. É uma palavra proparoxítona!" data-tip="">MÚ (primeira)</button>
+    <button class="opt-btn" data-q="q3" data-correct="false" data-msg="Errado! Tente falar em voz alta: MÚ-si-ca. A força está na primeira sílaba." data-tip="💡 Sacada: bata palmas em cada sílaba e sinta qual é mais forte!">si (segunda)</button>
+    <button class="opt-btn" data-q="q3" data-correct="false" data-msg="Errado! A última sílaba é a mais fraca em música. A força está no MÚ." data-tip="💡 Sacada: proparoxítonas têm a força na antepenúltima sílaba e sempre têm acento!">ca (terceira)</button>
+  </div>
+  <div class="feedback" id="fb-q3"></div>
+</div>
+
+<!-- Q4 -->
+<div class="card" id="q4">
+  <div class="q-num">4</div><div class="q-type">Sílaba tônica</div>
+  <div class="q-text">Qual palavra recebe acento gráfico porque a sílaba tônica é a última?</div>
+  <div class="options">
+    <button class="opt-btn" data-q="q4" data-correct="false" data-msg="Errado! 'Menina' é paroxítona — a força está em me-NI-na (penúltima). Não precisa de acento." data-tip="💡 Sacada: paroxítonas geralmente não levam acento.">menina</button>
+    <button class="opt-btn" data-q="q4" data-correct="true" data-msg="Ótimo! Ca-FÉ — a última sílaba é a mais forte. É oxítona e recebe acento!" data-tip="">café</button>
+    <button class="opt-btn" data-q="q4" data-correct="false" data-msg="Errado! 'Violino' é paroxítona — a força está em vi-o-LI-no (penúltima)." data-tip="💡 Sacada: oxítonas têm a força na última sílaba. Ex: café, maracujá, cipó.">violino</button>
+    <button class="opt-btn" data-q="q4" data-correct="false" data-msg="Errado! 'Lâmpada' é proparoxítona — a força está em LÂM-pa-da (antepenúltima)." data-tip="💡 Sacada: lâmpada tem acento porque é proparoxítona, não oxítona.">lâmpada</button>
+  </div>
+  <div class="feedback" id="fb-q4"></div>
+</div>
+
+<!-- Q5 -->
+<div class="card" id="q5">
+  <div class="q-num">5</div><div class="q-type">Substantivo simples e composto</div>
+  <div class="q-text">Qual das palavras abaixo é um <strong>substantivo composto</strong>?</div>
+  <div class="options">
+    <button class="opt-btn" data-q="q5" data-correct="false" data-msg="Errado! Violino é formado por uma palavra só — é um substantivo simples." data-tip="💡 Sacada: substantivo simples = uma palavra. Composto = duas ou mais!">violino</button>
+    <button class="opt-btn" data-q="q5" data-correct="false" data-msg="Errado! Menina é uma palavra só — é simples." data-tip="💡 Sacada: conta as palavras que formam o nome.">menina</button>
+    <button class="opt-btn" data-q="q5" data-correct="true" data-msg="Correto! Girassol = gira + sol → formado por duas palavras = composto!" data-tip="">girassol</button>
+    <button class="opt-btn" data-q="q5" data-correct="false" data-msg="Errado! Música é formada por uma palavra só — é simples." data-tip="💡 Sacada: girassol e guarda-chuva são exemplos clássicos de compostos.">música</button>
+  </div>
+  <div class="feedback" id="fb-q5"></div>
+</div>
+
+<!-- Q6 -->
+<div class="card" id="q6">
+  <div class="q-num">6</div><div class="q-type">Substantivo simples e composto</div>
+  <div class="q-text">Guarda-chuva é um substantivo:</div>
+  <div class="options">
+    <button class="opt-btn" data-q="q6" data-correct="true" data-msg="Perfeito! Guarda-chuva = guarda + chuva → duas palavras = substantivo composto!" data-tip="">Composto, formado por duas palavras.</button>
+    <button class="opt-btn" data-q="q6" data-correct="false" data-msg="Errado! Guarda-chuva tem hífen e é formado por duas palavras: guarda + chuva." data-tip="💡 Sacada: quando você vê hífen, é quase sempre substantivo composto!">Simples, formado por uma palavra só.</button>
+  </div>
+  <div class="feedback" id="fb-q6"></div>
+</div>
+
+<!-- Q7 -->
+<div class="card" id="q7">
+  <div class="q-num">7</div><div class="q-type">Monossílabos</div>
+  <div class="q-text">Qual das palavras abaixo é um monossílabo <strong>tônico</strong>?</div>
+  <div class="options">
+    <button class="opt-btn" data-q="q7" data-correct="false" data-msg="Errado! 'de' é átono — NÃO tem sentido próprio, precisa de outra palavra para ter sentido." data-tip="💡 Sacada: de, a, o, que, com, do = átonos (sem sentido próprio)!">de</button>
+    <button class="opt-btn" data-q="q7" data-correct="true" data-msg="Correto! 'Pá' é monossílabo tônico — tem significado próprio, é pronunciado com força e recebe acento!" data-tip="">pá</button>
+    <button class="opt-btn" data-q="q7" data-correct="false" data-msg="Errado! 'o' é átono — NÃO tem sentido próprio. Tente falar 'o' sozinho: não faz sentido!" data-tip="💡 Sacada: artigos (o, a, os, as) são sempre átonos.">o</button>
+    <button class="opt-btn" data-q="q7" data-correct="false" data-msg="Errado! 'me' é átono — NÃO tem sentido próprio sozinho, precisa estar junto a um verbo." data-tip="💡 Sacada: me, te, se, nos = átonos (sem sentido próprio)!">me</button>
+  </div>
+  <div class="feedback" id="fb-q7"></div>
+</div>
+
+<!-- Q8 -->
+<div class="card" id="q8">
+  <div class="q-num">8</div><div class="q-type">Monossílabos</div>
+  <div class="q-text">Na frase <strong>"Ela deu o pé para mim."</strong>, qual monossílabo é <strong>átono</strong>?</div>
+  <div class="options">
+    <button class="opt-btn" data-q="q8" data-correct="false" data-msg="Errado! 'Pé' é tônico — tem sentido próprio (parte do corpo) e autonomia na frase." data-tip="💡 Sacada: pé, Sol, chá, vó = tônicos (sentido próprio)!">pé</button>
+    <button class="opt-btn" data-q="q8" data-correct="true" data-msg="Correto! 'O' é o artigo — monossílabo átono, pois é fraco e não tem significado sozinho." data-tip="">o</button>
+    <button class="opt-btn" data-q="q8" data-correct="false" data-msg="Errado! 'Deu' é tônico — é o verbo da frase, pronunciado com força." data-tip="💡 Sacada: verbos são sempre tônicos.">deu</button>
+  </div>
+  <div class="feedback" id="fb-q8"></div>
+</div>
+
+<!-- Q9 -->
+<div class="card" id="q9">
+  <div class="q-num">9</div><div class="q-type">Instruções de montagem</div>
+  <div class="q-text">Nos textos de instrução (como montar um bilboquê), os passos são escritos com:</div>
+  <div class="options">
+    <button class="opt-btn" data-q="q9" data-correct="true" data-msg="Perfeito! Verbos de comando: Corte, Cole, Faça, Passe... Dizem o que fazer em cada passo!" data-tip="">Verbos de comando (Corte, Cole, Faça...)</button>
+    <button class="opt-btn" data-q="q9" data-correct="false" data-msg="Errado! Adjetivos descrevem características. Nos passos das instruções usamos verbos de ação." data-tip="💡 Sacada: adjetivos descrevem. Verbos de comando ordenam o que fazer!">Adjetivos que descrevem as peças</button>
+    <button class="opt-btn" data-q="q9" data-correct="false" data-msg="Errado! Perguntas são para entrevistar alguém. Instruções usam verbos que mandam fazer algo." data-tip="💡 Sacada: texto de instrução manda, não pergunta!">Perguntas para o leitor</button>
+  </div>
+  <div class="feedback" id="fb-q9"></div>
+</div>
+
+<!-- Q10 -->
+<div class="card" id="q10">
+  <div class="q-num">10</div><div class="q-type">Instruções de montagem</div>
+  <div class="q-text">Numa lista de materiais para montar um brinquedo, as palavras são principalmente:</div>
+  <div class="options">
+    <button class="opt-btn" data-q="q10" data-correct="false" data-msg="Errado! Verbos expressam ações. Na lista de materiais ficam os nomes das coisas necessárias." data-tip="💡 Sacada: verbos ficam nos passos. Substantivos ficam na lista de materiais!">Verbos de ação</button>
+    <button class="opt-btn" data-q="q10" data-correct="true" data-msg="Correto! Garrafa, fio, tampinha, fita adesiva... Todos são substantivos — nomes das coisas!" data-tip="">Substantivos (nomes dos materiais)</button>
+    <button class="opt-btn" data-q="q10" data-correct="false" data-msg="Errado! Adjetivos descrevem. Na lista de materiais ficam os nomes (substantivos) do que precisamos." data-tip="💡 Sacada: separar material = usar substantivos. Descrever material = usar adjetivos.">Adjetivos que descrevem as coisas</button>
+  </div>
+  <div class="feedback" id="fb-q10"></div>
+</div>
+
+<!-- Q11 -->
+<div class="card" id="q11">
+  <div class="q-num">11</div><div class="q-type">Uso do SS</div>
+  <div class="q-text">Qual palavra está escrita <strong>corretamente</strong>?</div>
+  <div class="options">
+    <button class="opt-btn" data-q="q11" data-correct="false" data-msg="Errado! Entre as vogais 'a' e 'a', o som de S precisa de SS. O correto é 'massa'." data-tip="💡 Sacada: vogal + S simples + vogal = som de Z (casa). Para som de S = SS!">masa</button>
+    <button class="opt-btn" data-q="q11" data-correct="true" data-msg="Correto! Ma-SS-a → vogal + SS + vogal → usa-se SS para o som de S entre vogais!" data-tip="">massa</button>
+    <button class="opt-btn" data-q="q11" data-correct="false" data-msg="Errado! 'Sssa' não existe em português. O correto é 'massa' com SS entre as vogais." data-tip="💡 Sacada: SS sempre aparece entre vogais — nunca no começo da palavra!">ssamassa</button>
+  </div>
+  <div class="feedback" id="fb-q11"></div>
+</div>
+
+<!-- Q12 -->
+<div class="card" id="q12">
+  <div class="q-num">12</div><div class="q-type">Uso do SS</div>
+  <div class="q-text">Em qual das palavras abaixo o <strong>SS</strong> está corretamente entre duas vogais?</div>
+  <div class="options">
+    <button class="opt-btn" data-q="q12" data-correct="false" data-msg="Errado! 'Ssapo' não existe. Sapo tem apenas um S porque está no início da palavra." data-tip="💡 Sacada: SS nunca aparece no começo de uma palavra!">ssapo</button>
+    <button class="opt-btn" data-q="q12" data-correct="true" data-msg="Perfeito! O-SS-o → vogal O + SS + vogal O → correto! SS entre duas vogais." data-tip="">osso</button>
+    <button class="opt-btn" data-q="q12" data-correct="false" data-msg="Errado! 'Porssa' não existe. Porsa também não. O correto seria 'bolsa' (com S simples após consoante)." data-tip="💡 Sacada: SS só aparece entre vogais — nunca depois de consoante!">porssa</button>
+  </div>
+  <div class="feedback" id="fb-q12"></div>
+</div>
+
+<!-- Q13 -->
+<div class="card" id="q13">
+  <div class="q-num">13</div><div class="q-type">Adjetivos</div>
+  <div class="q-text">Na frase <strong>"O chinelo velho estava quebrado."</strong>, qual palavra é o adjetivo?</div>
+  <div class="options">
+    <button class="opt-btn" data-q="q13" data-correct="false" data-msg="Errado! Chinelo é o substantivo — o nome da coisa. O adjetivo descreve o chinelo." data-tip="💡 Sacada: adjetivo e substantivo andam juntos. O adjetivo caracteriza o substantivo!">chinelo</button>
+    <button class="opt-btn" data-q="q13" data-correct="true" data-msg="Correto! Velho é o adjetivo — descreve como é o chinelo. Como é o chinelo? Velho!" data-tip="">velho</button>
+    <button class="opt-btn" data-q="q13" data-correct="false" data-msg="Errado! Estava é o verbo da frase — a ação. O adjetivo é a palavra que descreve o chinelo." data-tip="💡 Sacada: pergunte 'Como é o chinelo?' — a resposta é o adjetivo!">estava</button>
+  </div>
+  <div class="feedback" id="fb-q13"></div>
+</div>
+
+<!-- Q14 -->
+<div class="card" id="q14">
+  <div class="q-num">14</div><div class="q-type">Adjetivos e locuções adjetivas</div>
+  <div class="q-text"><strong>"Chinelo de borracha"</strong> — a expressão em destaque é:</div>
+  <div class="options">
+    <button class="opt-btn" data-q="q14" data-correct="false" data-msg="Errado! Adjetivo simples é uma palavra só (velho, novo, bonito). 'De borracha' são duas palavras." data-tip="💡 Sacada: uma palavra = adjetivo. Duas ou mais com preposição = locução adjetiva!">Um adjetivo simples</button>
+    <button class="opt-btn" data-q="q14" data-correct="true" data-msg="Perfeito! De borracha = locução adjetiva! Preposição DE + substantivo BORRACHA, funcionando como adjetivo." data-tip="">Uma locução adjetiva</button>
+    <button class="opt-btn" data-q="q14" data-correct="false" data-msg="Errado! Substantivo é o nome de uma coisa. 'De borracha' caracteriza o chinelo — é locução adjetiva." data-tip="💡 Sacada: locução adjetiva sempre responde 'de que tipo?' ou 'de que material?'">Um substantivo</button>
+  </div>
+  <div class="feedback" id="fb-q14"></div>
+</div>
+
+<button class="finish-btn" id="finishBtn">Ver meu resultado 🎉</button>
+
+<div class="result-panel" id="resultPanel">
+  <div class="result-big" id="resultEmoji">🎉</div>
+  <div class="result-grade" id="resultGrade"></div>
+  <div class="result-grade-label" style="font-size:0.75rem;opacity:0.55;margin-bottom:2px;">pontos</div>
+  <div class="result-grade-label" id="resultGradeLabel"></div>
+  <div class="result-msg" id="resultMsg"></div>
+  <div class="result-score" id="resultScore"></div>
+  <div class="result-actions">
+    <button class="retry-btn" onclick="location.reload()">Tentar de novo 🔄</button>
+    <a href="gabarito.html" class="gabarito-link">📋 Ver Gabarito</a>
+  </div>
+</div>
+
+<div class="bottom-nav">
+  <a href="resumo_conteudo.html" class="btn-prev">← Resumo</a>
+  <a href="index.html" class="btn-home-only">🏠</a>
+  <a href="nivel2_intermediario.html" class="btn-next">🔥 Nível 2 →</a>
+</div>
+</div>
+
+<div class="credit">Desenvolvido por <strong>Jhony Beraldo</strong></div>
+
+<script>
+var score = 0;
+var answered = {};
+var total = 14;
+
+function showFeedback(qid, isCorrect, okMsg, nokMsg, tipMsg) {
+  var fb = document.getElementById('fb-' + qid);
+  if (isCorrect) {
+    fb.innerHTML = '<span class="fb-answer">✅ ' + okMsg + '</span>';
+    fb.className = 'feedback show ok';
+  } else {
+    fb.innerHTML = '<span class="fb-answer">❌ ' + nokMsg + '</span>' + (tipMsg ? '<span class="fb-tip">' + tipMsg + '</span>' : '');
+    fb.className = 'feedback show nok';
+  }
+}
+
+document.querySelectorAll('.opt-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var qid = btn.dataset.q;
+    if (answered[qid]) return;
+    answered[qid] = true;
+    var correct = btn.dataset.correct === 'true';
+    document.getElementById(qid).querySelectorAll('.opt-btn').forEach(function(b) { b.classList.add('disabled'); });
+    if (correct) {
+      btn.classList.add('correct'); score++;
+      document.getElementById('scoreDisplay').textContent = score + ' / ' + total;
+      showFeedback(qid, true, btn.dataset.msg, '', '');
+    } else {
+      btn.classList.add('wrong');
+      showFeedback(qid, false, '', btn.dataset.msg, btn.dataset.tip);
+    }
+  });
+});
+
+document.getElementById('finishBtn').addEventListener('click', function() {
+  var panel = document.getElementById('resultPanel');
+  panel.classList.add('show');
+  var nota = Math.round((score / total) * 100);
+  var emoji, msg, gradeLabel;
+  if (nota === 100)     { emoji = '🏆'; msg = 'Incrível! Nota máxima! Você é uma superestrela! 🌟'; gradeLabel = 'PERFEITO!'; }
+  else if (nota >= 90)  { emoji = '🎉'; msg = 'Arrasou! Quase perfeito, continue assim! 💪'; gradeLabel = 'EXCELENTE!'; }
+  else if (nota >= 75)  { emoji = '😄'; msg = 'Muito bem! Você está quase dominando! 🎯'; gradeLabel = 'MUITO BOM!'; }
+  else if (nota >= 60)  { emoji = '😊'; msg = 'Bom trabalho! Revise as dicas e tente de novo!'; gradeLabel = 'BOM!'; }
+  else if (nota >= 40)  { emoji = '💪'; msg = 'Continue tentando! Estude o resumo e vai arrasar!'; gradeLabel = 'PODE MAIS!'; }
+  else                   { emoji = '📚'; msg = 'Não desista! Leia o resumo e tente novamente! 💛'; gradeLabel = 'ESTUDE MAIS!'; }
+  document.getElementById('resultEmoji').textContent = emoji;
+  document.getElementById('resultGrade').textContent = score + ' / 14';
+  document.getElementById('resultGradeLabel').textContent = gradeLabel;
+  document.getElementById('resultMsg').textContent = msg;
+  document.getElementById('resultScore').textContent = 'Você acertou ' + score + ' de ' + total + ' questões.';
+  panel.scrollIntoView({ behavior: 'smooth' });
+});
+</script>
+</body>
+</html>

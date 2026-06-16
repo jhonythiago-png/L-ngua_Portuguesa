@@ -3,6 +3,188 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>📚 Resumo – Língua Portuguesa</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f5f0ff; color: #2d2d3a; padding-bottom: 80px; }
+
+.top-nav { background: #2d1b69; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 50; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.top-nav a { color: #c4b5fd; font-size: 0.8rem; font-weight: 700; text-decoration: none; background: rgba(124,58,237,0.25); border: 1px solid rgba(124,58,237,0.4); padding: 5px 12px; border-radius: 20px; }
+.top-nav span { color: rgba(255,255,255,0.45); font-size: 0.78rem; }
+
+.hero { background: linear-gradient(145deg, #4c1d95, #7c3aed, #a855f7); padding: 32px 20px 24px; text-align: center; position: relative; overflow: hidden; }
+.hero::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 30%, rgba(255,255,255,0.1), transparent 60%); pointer-events: none; }
+.hero-emoji { font-size: 3rem; display: block; margin-bottom: 10px; position: relative; }
+.hero h1 { font-size: 1.6rem; font-weight: 900; color: white; line-height: 1.2; position: relative; }
+.hero h2 { font-size: 0.95rem; color: rgba(255,255,255,0.75); font-weight: 400; margin-top: 6px; position: relative; }
+.hero-pill { display: inline-block; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); color: white; font-size: 0.72rem; font-weight: 700; padding: 4px 14px; border-radius: 20px; margin-top: 12px; position: relative; }
+
+.print-btn-wrap { text-align: right; padding: 10px 16px 0; }
+.print-btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; background: transparent; border: 1px solid rgba(124,58,237,0.35); border-radius: 20px; font-size: 0.78rem; font-family: inherit; font-weight: 600; color: rgba(124,58,237,0.6); cursor: pointer; }
+.print-btn:hover { border-color: #7c3aed; color: #7c3aed; }
+
+.nav-dots { display: flex; justify-content: center; gap: 6px; padding: 12px 10px; background: #f5f0ff; border-bottom: 1px solid #e8e0f5; flex-wrap: wrap; position: sticky; top: 41px; z-index: 40; }
+.nav-dot { background: none; border: 2px solid #c4b5fd; color: #7c3aed; font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; cursor: pointer; white-space: nowrap; }
+.nav-dot.active, .nav-dot:active { background: #7c3aed; color: white; border-color: #7c3aed; }
+
+.section { padding: 20px 16px 8px; }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.section-icon { width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
+.s1 { background: linear-gradient(135deg,#7c3aed,#a855f7); }
+.s2 { background: linear-gradient(135deg,#0d9488,#06b6d4); }
+.s3 { background: linear-gradient(135deg,#d97706,#f59e0b); }
+.s4 { background: linear-gradient(135deg,#dc2626,#f43f5e); }
+.s5 { background: linear-gradient(135deg,#16a34a,#22c55e); }
+.s6 { background: linear-gradient(135deg,#ec4899,#f97316); }
+.s7 { background: linear-gradient(135deg,#0284c7,#38bdf8); }
+.section-title { font-size: 1.05rem; font-weight: 800; color: #1e1b2e; }
+.section-sub { font-size: 0.74rem; color: #9188a8; margin-top: 2px; }
+
+.card { background: white; border-radius: 16px; padding: 16px; margin-bottom: 12px; box-shadow: 0 2px 12px rgba(124,58,237,0.07); border: 1px solid #ede9f5; }
+.card-title { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #7c3aed; margin-bottom: 10px; }
+
+.tip { background: linear-gradient(135deg,#f5f3ff,#fdf2f8); border-left: 4px solid #a855f7; border-radius: 0 12px 12px 0; padding: 12px 14px; margin-bottom: 12px; font-size: 0.88rem; line-height: 1.6; }
+.tip .tip-title { font-size: 0.7rem; font-weight: 700; color: #a855f7; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+.tip strong { color: #7c3aed; }
+
+.rule-box { background: white; border: 2px solid #7c3aed; border-radius: 14px; padding: 14px; margin-bottom: 12px; }
+.rule-title { font-size: 0.7rem; font-weight: 700; color: #7c3aed; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+.rule-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #ede9f5; }
+.rule-row:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.rule-tag { color: white; font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 6px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+.bg-purple { background: #7c3aed; }
+.bg-teal   { background: #0d9488; }
+.bg-amber  { background: #d97706; }
+.bg-pink   { background: #ec4899; }
+.bg-red    { background: #dc2626; }
+.bg-green  { background: #16a34a; }
+.bg-blue   { background: #0284c7; }
+.rule-text { font-size: 0.88rem; line-height: 1.55; }
+.rule-text em { color: #7c3aed; font-style: normal; font-weight: 700; }
+.rule-text small { display: block; color: #9ca3af; font-size: 0.78rem; margin-top: 2px; }
+
+.example-box { background: #faf8ff; border: 1.5px solid #ede9f5; border-radius: 12px; padding: 12px 14px; margin-bottom: 12px; font-size: 0.88rem; line-height: 1.7; }
+.example-box .ex-label { font-size: 0.68rem; font-weight: 700; color: #9188a8; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+.ex-correct { color: #16a34a; font-weight: 700; }
+.ex-wrong   { color: #dc2626; text-decoration: line-through; }
+
+.word-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.word-item { background: #faf8ff; border: 1.5px solid #ede9f5; border-radius: 12px; padding: 10px 12px; }
+.word-item .word-main { font-size: 0.92rem; font-weight: 800; color: #7c3aed; }
+.word-item .word-def  { font-size: 0.76rem; color: #6b7280; margin-top: 2px; }
+
+.accent-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.accent-card { background: white; border: 1.5px solid #ede9f5; border-radius: 12px; padding: 12px; text-align: center; }
+.accent-symbol { font-size: 2rem; font-weight: 900; margin-bottom: 4px; }
+.accent-name { font-size: 0.78rem; font-weight: 800; color: #1e1b2e; margin-bottom: 4px; }
+.accent-desc { font-size: 0.72rem; color: #6b7280; line-height: 1.4; }
+.accent-ex   { font-size: 0.82rem; font-weight: 700; color: #7c3aed; margin-top: 6px; }
+
+.ss-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.ss-item { background: #faf8ff; border: 1.5px solid #ede9f5; border-radius: 10px; padding: 10px; text-align: center; }
+.ss-word { font-size: 0.95rem; font-weight: 800; color: #1e1b2e; }
+.ss-word span { color: #ec4899; }
+.ss-tip  { font-size: 0.7rem; color: #9188a8; margin-top: 3px; }
+
+.bottom-nav { display: flex; gap: 10px; padding: 0 14px; margin: 20px 0 10px; }
+.bottom-nav a { flex: 1; padding: 13px 10px; border-radius: 14px; text-decoration: none; text-align: center; font-size: 0.85rem; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.btn-home { background: rgba(124,58,237,0.12); border: 1.5px solid rgba(124,58,237,0.25); color: #7c3aed !important; }
+.btn-next { background: linear-gradient(135deg,#7c3aed,#a855f7); color: white !important; }
+
+.divider { height: 1px; background: #ede9f5; margin: 8px 16px 0; }
+.progress-footer { position: fixed; bottom: 0; left: 0; right: 0; background: white; border-top: 1px solid #ede9f5; padding: 10px 16px; display: flex; align-items: center; gap: 12px; z-index: 20; }
+.pf-label { font-size: 0.75rem; font-weight: 700; color: #7c3aed; white-space: nowrap; }
+.pf-bar { flex: 1; background: #ede9f5; border-radius: 10px; height: 8px; overflow: hidden; }
+.pf-fill { height: 100%; background: linear-gradient(90deg,#7c3aed,#ec4899); border-radius: 10px; transition: width 0.5s; width: 0%; }
+.pf-pct { font-size: 0.75rem; font-weight: 700; color: #9188a8; }
+.credit { text-align: center; padding: 16px 14px 8px; font-size: 0.75rem; color: #bbb; }
+.credit strong { color: #a78bfa; }
+
+/* ── PRINT ── */
+@media print {
+  /* hide */
+  .top-nav, .print-btn-wrap, .nav-dots, .progress-footer,
+  .bottom-nav, .hero, .credit { display: none !important; }
+
+  /* simple header */
+  .print-title-header { display: block !important; }
+
+  /* white page */
+  html, body { background: white !important; color: #111 !important; font-size: 11pt; }
+  body * { background-color: transparent !important; background-image: none !important;
+           color: #111 !important; box-shadow: none !important; text-shadow: none !important; }
+
+  /* sections */
+  .section { padding: 10px 0 4px !important; }
+  .section-header { margin-bottom: 8px !important; }
+  .section-icon { width: 32px !important; height: 32px !important; font-size: 1rem !important;
+    -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  .section-title { font-size: 12pt !important; font-weight: 700 !important; color: #1e1b2e !important; }
+  .section-sub   { color: #555 !important; }
+
+  /* cards */
+  .card { border: 1px solid #bbb !important; border-radius: 6px !important;
+          break-inside: avoid !important; page-break-inside: avoid !important;
+          margin-bottom: 8px !important; padding: 10px !important; }
+  .card-title { color: #4c1d95 !important; }
+
+  /* rule boxes */
+  .rule-box { border: 1.5px solid #555 !important; border-radius: 6px !important;
+              break-inside: avoid !important; padding: 10px !important; }
+  .rule-title { color: #4c1d95 !important; }
+  .rule-tag { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
+              font-size: 8pt !important; padding: 2px 6px !important; }
+  .rule-text { font-size: 10pt !important; }
+  .rule-text em { color: #4c1d95 !important; }
+  .rule-row { border-bottom: 1px dashed #ccc !important; }
+
+  /* tips */
+  .tip { border-left: 3px solid #7c3aed !important; background: #f9f7ff !important;
+         break-inside: avoid !important; padding: 8px 10px !important;
+         -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  .tip strong { color: #4c1d95 !important; }
+
+  /* example boxes */
+  .example-box { border: 1px solid #ccc !important; border-radius: 4px !important;
+                 break-inside: avoid !important; }
+  .ex-correct { color: #166534 !important; }
+  .ex-wrong   { color: #991b1b !important; }
+
+  /* word grid */
+  .word-grid { grid-template-columns: 1fr 1fr !important; }
+  .word-item { border: 1px solid #ddd !important; border-radius: 4px !important; }
+  .word-item .word-main { color: #4c1d95 !important; }
+
+  /* accent grid */
+  .accent-grid { grid-template-columns: 1fr 1fr !important; }
+  .accent-card { border: 1px solid #ccc !important; border-radius: 4px !important; }
+  .accent-ex { color: #4c1d95 !important; }
+
+  /* ss grid */
+  .ss-grid { grid-template-columns: repeat(3,1fr) !important; }
+  .ss-item { border: 1px solid #ddd !important; border-radius: 4px !important; }
+  .ss-word span { color: #9d174d !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+  /* divider */
+  .divider { border-top: 1px solid #ddd !important; display: block !important; }
+
+  /* page breaks */
+  #sec1 { page-break-before: avoid !important; }
+  #sec2, #sec3, #sec4, #sec5, #sec6, #sec7 { page-break-before: always !important; }
+  .section { page-break-inside: avoid !important; }
+
+  @page { margin: 1.5cm; size: A4; }
+}
+</style>
+</head>
+<body>
+
+<!-- PRINT HEADER (hidden on screen) -->
+<div class="print-title-header" style="display:none;text-align:center;padding:0 0 12px;border-bottom:2px solid #4c1d95;margin-bottom:16px;">
+  <div style="font-size:14pt;font-weight:900;color:#4c1d95;">Língua Portuguesa — Guia de Estudos</div>
+  <div style="font-size:10pt;color:#555;margin-top:4px;">Capítulos 4 e 5 · Desenvolvido por Jhony Beraldo</div>
+</div>
+
 <div class="top-nav">
   <a href="index.html">🏠 Início</a>
   <span>📚 Resumo — Português</span>
@@ -81,7 +263,7 @@
   <div class="rule-box">
     <div class="rule-title">📐 Classificação pelo acento</div>
     <div class="rule-row"><span class="rule-tag bg-purple">OXÍTONA</span><div class="rule-text">Última sílaba é a mais forte.<small>Ex: ca-<em>FÉ</em> · ma-ra-cu-<em>JÁ</em> · tam-<em>BÉM</em></small></div></div>
-    <div class="rule-row"><span class="rule-tag bg-teal">PAROXÍTONA</span><div class="rule-text">Penúltima sílaba é a mais forte.<small>Ex: <em>ME</em>-ni-na · vi-o-<em>LI</em>-no · <em>CA</em>-sa · <em>cha</em>-péu<br>A maioria das palavras do português é paroxítona!</small></div></div>
+    <div class="rule-row"><span class="rule-tag bg-teal">PAROXÍTONA</span><div class="rule-text">Penúltima sílaba é a mais forte.<small>Ex: me-<em>NI</em>-na · vi-o-<em>LI</em>-no · ca-<em>SA</em> · cha-<em>PÉU</em><br>A maioria das palavras do português é paroxítona!</small></div></div>
     <div class="rule-row"><span class="rule-tag bg-amber">PROPAROXÍTONA</span><div class="rule-text">Antepenúltima sílaba é a mais forte.<small>Ex: <em>MÚ</em>-si-ca, <em>LÁ</em>-gri-ma — sempre têm acento!</small></div></div>
   </div>
 
@@ -246,6 +428,10 @@
   <div class="tip"><div class="tip-title">🧠 Macete</div>
     A professora define: locução adjetiva = <strong>união de duas ou mais palavras</strong> que juntas exercem a função de adjetivo, servindo para qualificar ou caracterizar um substantivo.<br><br>Exemplo: <em>cerebral</em> (adjetivo) = <em>do cérebro</em> (locução adjetiva)<br>Exemplo: <em>pluvial</em> = <em>da chuva</em> · <em>maternal</em> = <em>de mãe</em><br><br>Pergunte: <strong>"Como é?"</strong> ou <strong>"De quê/quem?"</strong>
   </div>
+</div>
+
+  <div class="pf-bar"><div class="pf-fill" id="pfFill"></div></div>
+  <div class="pf-pct" id="pfPct">0%</div>
 </div>
 
 <div class="bottom-nav">

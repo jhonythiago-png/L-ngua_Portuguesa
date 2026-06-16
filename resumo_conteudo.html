@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>📚 Resumo – Língua Portuguesa</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f5f0ff; color: #2d2d3a; padding-bottom: 80px; }
+
+.top-nav { background: #2d1b69; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 50; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.top-nav a { color: #c4b5fd; font-size: 0.8rem; font-weight: 700; text-decoration: none; background: rgba(124,58,237,0.25); border: 1px solid rgba(124,58,237,0.4); padding: 5px 12px; border-radius: 20px; }
+.top-nav span { color: rgba(255,255,255,0.45); font-size: 0.78rem; }
+
+.hero { background: linear-gradient(145deg, #4c1d95, #7c3aed, #a855f7); padding: 32px 20px 24px; text-align: center; position: relative; overflow: hidden; }
+.hero::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 30%, rgba(255,255,255,0.1), transparent 60%); pointer-events: none; }
+.hero-emoji { font-size: 3rem; display: block; margin-bottom: 10px; position: relative; }
+.hero h1 { font-size: 1.6rem; font-weight: 900; color: white; line-height: 1.2; position: relative; }
+.hero h2 { font-size: 0.95rem; color: rgba(255,255,255,0.75); font-weight: 400; margin-top: 6px; position: relative; }
+.hero-pill { display: inline-block; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); color: white; font-size: 0.72rem; font-weight: 700; padding: 4px 14px; border-radius: 20px; margin-top: 12px; position: relative; }
+
+.print-btn-wrap { text-align: right; padding: 10px 16px 0; }
+.print-btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; background: transparent; border: 1px solid rgba(124,58,237,0.35); border-radius: 20px; font-size: 0.78rem; font-family: inherit; font-weight: 600; color: rgba(124,58,237,0.6); cursor: pointer; }
+.print-btn:hover { border-color: #7c3aed; color: #7c3aed; }
+
+.nav-dots { display: flex; justify-content: center; gap: 6px; padding: 12px 10px; background: #f5f0ff; border-bottom: 1px solid #e8e0f5; flex-wrap: wrap; position: sticky; top: 41px; z-index: 40; }
+.nav-dot { background: none; border: 2px solid #c4b5fd; color: #7c3aed; font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; cursor: pointer; white-space: nowrap; }
+.nav-dot.active, .nav-dot:active { background: #7c3aed; color: white; border-color: #7c3aed; }
+
+.section { padding: 20px 16px 8px; }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.section-icon { width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
+.s1 { background: linear-gradient(135deg,#7c3aed,#a855f7); }
+.s2 { background: linear-gradient(135deg,#0d9488,#06b6d4); }
+.s3 { background: linear-gradient(135deg,#d97706,#f59e0b); }
+.s4 { background: linear-gradient(135deg,#dc2626,#f43f5e); }
+.s5 { background: linear-gradient(135deg,#16a34a,#22c55e); }
+.s6 { background: linear-gradient(135deg,#ec4899,#f97316); }
+.s7 { background: linear-gradient(135deg,#0284c7,#38bdf8); }
+.section-title { font-size: 1.05rem; font-weight: 800; color: #1e1b2e; }
+.section-sub { font-size: 0.74rem; color: #9188a8; margin-top: 2px; }
+
+.card { background: white; border-radius: 16px; padding: 16px; margin-bottom: 12px; box-shadow: 0 2px 12px rgba(124,58,237,0.07); border: 1px solid #ede9f5; }
+.card-title { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #7c3aed; margin-bottom: 10px; }
+
+.tip { background: linear-gradient(135deg,#f5f3ff,#fdf2f8); border-left: 4px solid #a855f7; border-radius: 0 12px 12px 0; padding: 12px 14px; margin-bottom: 12px; font-size: 0.88rem; line-height: 1.6; }
+.tip .tip-title { font-size: 0.7rem; font-weight: 700; color: #a855f7; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+.tip strong { color: #7c3aed; }
+
+.rule-box { background: white; border: 2px solid #7c3aed; border-radius: 14px; padding: 14px; margin-bottom: 12px; }
+.rule-title { font-size: 0.7rem; font-weight: 700; color: #7c3aed; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+.rule-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #ede9f5; }
+.rule-row:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.rule-tag { color: white; font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 6px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+.bg-purple { background: #7c3aed; }
+.bg-teal   { background: #0d9488; }
+.bg-amber  { background: #d97706; }
+.bg-pink   { background: #ec4899; }
+.bg-red    { background: #dc2626; }
+.bg-green  { background: #16a34a; }
+.bg-blue   { background: #0284c7; }
+.rule-text { font-size: 0.88rem; line-height: 1.55; }
+.rule-text em { color: #7c3aed; font-style: normal; font-weight: 700; }
+.rule-text small { display: block; color: #9ca3af; font-size: 0.78rem; margin-top: 2px; }
+
+.example-box { background: #faf8ff; border: 1.5px solid #ede9f5; border-radius: 12px; padding: 12px 14px; margin-bottom: 12px; font-size: 0.88rem; line-height: 1.7; }
+.example-box .ex-label { font-size: 0.68rem; font-weight: 700; color: #9188a8; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+.ex-correct { color: #16a34a; font-weight: 700; }
+.ex-wrong   { color: #dc2626; text-decoration: line-through; }
+
+.word-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.word-item { background: #faf8ff; border: 1.5px solid #ede9f5; border-radius: 12px; padding: 10px 12px; }
+.word-item .word-main { font-size: 0.92rem; font-weight: 800; color: #7c3aed; }
+.word-item .word-def  { font-size: 0.76rem; color: #6b7280; margin-top: 2px; }
+
+.accent-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.accent-card { background: white; border: 1.5px solid #ede9f5; border-radius: 12px; padding: 12px; text-align: center; }
+.accent-symbol { font-size: 2rem; font-weight: 900; margin-bottom: 4px; }
+.accent-name { font-size: 0.78rem; font-weight: 800; color: #1e1b2e; margin-bottom: 4px; }
+.accent-desc { font-size: 0.72rem; color: #6b7280; line-height: 1.4; }
+.accent-ex   { font-size: 0.82rem; font-weight: 700; color: #7c3aed; margin-top: 6px; }
+
+.ss-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.ss-item { background: #faf8ff; border: 1.5px solid #ede9f5; border-radius: 10px; padding: 10px; text-align: center; }
+.ss-word { font-size: 0.95rem; font-weight: 800; color: #1e1b2e; }
+.ss-word span { color: #ec4899; }
+.ss-tip  { font-size: 0.7rem; color: #9188a8; margin-top: 3px; }
+
+.bottom-nav { display: flex; gap: 10px; padding: 0 14px; margin: 20px 0 10px; }
+.bottom-nav a { flex: 1; padding: 13px 10px; border-radius: 14px; text-decoration: none; text-align: center; font-size: 0.85rem; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.btn-home { background: rgba(124,58,237,0.12); border: 1.5px solid rgba(124,58,237,0.25); color: #7c3aed !important; }
+.btn-next { background: linear-gradient(135deg,#7c3aed,#a855f7); color: white !important; }
+
+.divider { height: 1px; background: #ede9f5; margin: 8px 16px 0; }
+.progress-footer { position: fixed; bottom: 0; left: 0; right: 0; background: white; border-top: 1px solid #ede9f5; padding: 10px 16px; display: flex; align-items: center; gap: 12px; z-index: 20; }
+.pf-label { font-size: 0.75rem; font-weight: 700; color: #7c3aed; white-space: nowrap; }
+.pf-bar { flex: 1; background: #ede9f5; border-radius: 10px; height: 8px; overflow: hidden; }
+.pf-fill { height: 100%; background: linear-gradient(90deg,#7c3aed,#ec4899); border-radius: 10px; transition: width 0.5s; width: 0%; }
+.pf-pct { font-size: 0.75rem; font-weight: 700; color: #9188a8; }
+.credit { text-align: center; padding: 16px 14px 8px; font-size: 0.75rem; color: #bbb; }
+.credit strong { color: #a78bfa; }
+
+@media print {
+  .top-nav, .print-btn-wrap, .nav-dots, .progress-footer, .bottom-nav, #fazer-provas-btn { display: none !important; }
+  html, body { background: white !important; }
+  body * { background-color: transparent !important; background-image: none !important; color: #111 !important; box-shadow: none !important; }
+  .hero { background: #4c1d95 !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  .hero h1, .hero h2, .hero-pill, .hero-emoji { color: white !important; }
+  .card { border: 1px solid #ddd !important; break-inside: avoid !important; page-break-inside: avoid !important; }
+  .rule-box { border: 1.5px solid #7c3aed !important; break-inside: avoid !important; }
+  .tip { break-inside: avoid !important; }
+  .section { break-before: auto !important; }
+  .credit { color: #888 !important; }
+  @page { margin: 1.5cm; size: A4; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <a href="index.html">🏠 Início</a>
+  <span>📚 Resumo — Português</span>
+  <div style="width:70px;"></div>
+</div>
+
+<div class="hero">
+  <span class="hero-emoji">📖</span>
+  <h1>Língua Portuguesa</h1>
+  <h2>Guia de Estudos — Capítulos 4 e 5</h2>
+  <div class="hero-pill">📖 Leia tudo antes de fazer a prova!</div>
+</div>
+
+<div class="print-btn-wrap">
+  <button class="print-btn" onclick="window.print()">🖨️ Imprimir Resumo</button>
+</div>
+
+<div class="nav-dots">
+  <button class="nav-dot active" data-target="sec1">✏️ Frases</button>
+  <button class="nav-dot" data-target="sec2">🔤 Sílaba</button>
+  <button class="nav-dot" data-target="sec3">📦 Subst.</button>
+  <button class="nav-dot" data-target="sec4">1️⃣ Monoss.</button>
+  <button class="nav-dot" data-target="sec5">🔧 Instrução</button>
+  <button class="nav-dot" data-target="sec6">SS</button>
+  <button class="nav-dot" data-target="sec7">🎨 Adjetivos</button>
+</div>
+
+<!-- SEC 1 ORGANIZAÇÃO DE FRASES -->
+<div class="section" id="sec1">
+  <div class="section-header">
+    <div class="section-icon s1">✏️</div>
+    <div><div class="section-title">Organização de Frases</div><div class="section-sub">Como montar uma frase com sentido</div></div>
+  </div>
+
+  <div class="tip"><div class="tip-title">💡 O que é uma frase?</div>
+    Uma frase é um conjunto de palavras que tem um <strong>sentido completo</strong>. Para fazer sentido, a frase precisa ter pelo menos um verbo e estar organizada na ordem certa.
+  </div>
+
+  <div class="rule-box">
+    <div class="rule-title">📐 As partes da frase</div>
+    <div class="rule-row"><span class="rule-tag bg-purple">QUEM?</span><div class="rule-text"><em>Sujeito</em> — quem faz a ação.<small>Ex: A menina... / O violinista... / Os pais...</small></div></div>
+    <div class="rule-row"><span class="rule-tag bg-teal">O QUÊ FAZ?</span><div class="rule-text"><em>Verbo</em> — a ação ou estado.<small>Ex: ...tocou... / ...sorriu... / ...comprou...</small></div></div>
+    <div class="rule-row"><span class="rule-tag bg-amber">O QUÊ?</span><div class="rule-text"><em>Complemento</em> — o que completa o sentido.<small>Ex: ...o violino. / ...de alegria. / ...uma surpresa.</small></div></div>
+  </div>
+
+  <div class="example-box">
+    <div class="ex-label">✅ Exemplos corretos</div>
+    <div><em class="ex-correct">A menina tocou o violino.</em></div>
+    <div><em class="ex-correct">Os pais aplaudiram a filha.</em></div>
+    <div style="margin-top:8px;"><div class="ex-label">❌ Frase desorganizada</div></div>
+    <div><em class="ex-wrong">violino menina tocou o a</em></div>
+  </div>
+
+  <div class="tip"><div class="tip-title">🧠 Macete</div>
+    Sempre pergunta: <strong>Quem fez?</strong> → sujeito. <strong>O que fez?</strong> → verbo. <strong>O que / para quem?</strong> → complemento.
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- SEC 2 SÍLABA TÔNICA E ACENTO -->
+<div class="section" id="sec2">
+  <div class="section-header">
+    <div class="section-icon s2">🔤</div>
+    <div><div class="section-title">Sílaba Tônica e Acento Gráfico</div><div class="section-sub">A sílaba mais forte da palavra</div></div>
+  </div>
+
+  <div class="tip"><div class="tip-title">💡 O que é sílaba tônica?</div>
+    Em toda palavra com mais de uma sílaba, uma delas é pronunciada mais <strong>forte</strong>. Essa é a sílaba tônica! Ex: <strong>MÚ</strong>-si-ca, vi-O-li-no, me-NI-na.
+  </div>
+
+  <div class="accent-grid">
+    <div class="accent-card"><div class="accent-symbol" style="color:#7c3aed;">´</div><div class="accent-name">Acento Agudo</div><div class="accent-desc">Usado em vogais abertas: a, e, i, o, u</div><div class="accent-ex">músIca · café · avó</div></div>
+    <div class="accent-card"><div class="accent-symbol" style="color:#0d9488;">^</div><div class="accent-name">Acento Circunflexo</div><div class="accent-desc">Usado em vogais fechadas: â, ê, ô</div><div class="accent-ex">você · avô · tênue</div></div>
+  </div>
+
+  <div class="rule-box">
+    <div class="rule-title">📐 Classificação pelo acento</div>
+    <div class="rule-row"><span class="rule-tag bg-purple">OXÍTONA</span><div class="rule-text">Última sílaba é a mais forte.<small>Ex: vi-o-<em>LIN</em>, ca-<em>FÉ</em>, Ma-<em>RÁ</em></small></div></div>
+    <div class="rule-row"><span class="rule-tag bg-teal">PAROXÍTONA</span><div class="rule-text">Penúltima sílaba é a mais forte.<small>Ex: <em>ME</em>-ni-na, <em>VIO</em>-li-no, <em>MÚ</em>-si-ca</small></div></div>
+    <div class="rule-row"><span class="rule-tag bg-amber">PROPAROXÍTONA</span><div class="rule-text">Antepenúltima sílaba é a mais forte.<small>Ex: <em>MÚ</em>-si-ca, <em>LÁ</em>-gri-ma — sempre têm acento!</small></div></div>
+  </div>
+
+  <div class="tip"><div class="tip-title">🧠 Macete</div>
+    Bata palmas em cada sílaba e perceba qual soa mais forte. Essa é a tônica! Proparoxítonas <strong>sempre</strong> têm acento gráfico.
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- SEC 3 SUBSTANTIVOS -->
+<div class="section" id="sec3">
+  <div class="section-header">
+    <div class="section-icon s3">📦</div>
+    <div><div class="section-title">Substantivo Simples e Composto</div><div class="section-sub">Nomes formados por uma ou mais palavras</div></div>
+  </div>
+
+  <div class="tip"><div class="tip-title">💡 O que é substantivo?</div>
+    Substantivo é a palavra que dá <strong>nome</strong> às coisas, pessoas, lugares e sentimentos. Ex: violino, menina, música, alegria.
+  </div>
+
+  <div class="rule-box">
+    <div class="rule-title">📐 Simples × Composto</div>
+    <div class="rule-row"><span class="rule-tag bg-amber">SIMPLES</span><div class="rule-text">Formado por <em>uma</em> palavra só.<small>Ex: violino · menina · flor · casa</small></div></div>
+    <div class="rule-row"><span class="rule-tag bg-pink">COMPOSTO</span><div class="rule-text">Formado por <em>duas ou mais</em> palavras.<small>Ex: girassol (gira+sol) · guarda-chuva · pé-de-moleque</small></div></div>
+  </div>
+
+  <div class="word-grid">
+    <div class="word-item"><div class="word-main">girassol</div><div class="word-def">gira + sol → composto</div></div>
+    <div class="word-item"><div class="word-main">violino</div><div class="word-def">uma palavra → simples</div></div>
+    <div class="word-item"><div class="word-main">pé-de-moleque</div><div class="word-def">três palavras → composto</div></div>
+    <div class="word-item"><div class="word-main">couve-flor</div><div class="word-def">couve + flor → composto</div></div>
+    <div class="word-item"><div class="word-main">menina</div><div class="word-def">uma palavra → simples</div></div>
+    <div class="word-item"><div class="word-main">guarda-chuva</div><div class="word-def">guarda + chuva → composto</div></div>
+  </div>
+
+  <div class="tip"><div class="tip-title">🧠 Macete</div>
+    Conta quantas palavras formam o nome. <strong>Uma palavra = simples. Duas ou mais = composto.</strong> Compostos geralmente têm hífen ou se juntam em uma palavra só.
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- SEC 4 MONOSSÍLABOS -->
+<div class="section" id="sec4">
+  <div class="section-header">
+    <div class="section-icon s4">1️⃣</div>
+    <div><div class="section-title">Monossílabos Tônicos e Átonos</div><div class="section-sub">Palavras de uma sílaba só</div></div>
+  </div>
+
+  <div class="tip"><div class="tip-title">💡 O que é monossílabo?</div>
+    Monossílabo é qualquer palavra com <strong>uma sílaba só</strong>. Alguns são fortes (tônicos) e outros são fracos (átonos) na pronúncia.
+  </div>
+
+  <div class="rule-box">
+    <div class="rule-title">📐 Tônico × Átono</div>
+    <div class="rule-row"><span class="rule-tag bg-red">TÔNICO</span><div class="rule-text">Pronunciado com <em>força</em>. Alguns recebem acento gráfico.<small>Ex: pá · pé · mês · nós · vós · dá · fé</small></div></div>
+    <div class="rule-row"><span class="rule-tag bg-green">ÁTONO</span><div class="rule-text">Pronunciado <em>fraco</em>, sem ênfase. Nunca têm acento.<small>Ex: de · a · o · em · me · te · se · nos</small></div></div>
+  </div>
+
+  <div class="example-box">
+    <div class="ex-label">Como identificar na prática</div>
+    "Ele deu <strong>pá</strong> para <strong>o</strong> menino."<br>
+    → <em class="ex-correct">pá</em> = tônico (forte, tem acento)<br>
+    → <em style="color:#6b7280;">o</em> = átono (fraco, sem acento)
+  </div>
+
+  <div class="tip"><div class="tip-title">🧠 Macete</div>
+    Tente pronunciar a palavra com força. Se ela aguenta ser falada com ênfase e tem significado próprio = <strong>tônico</strong>. Se soa estranha falada sozinha e forte = <strong>átono</strong>.
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- SEC 5 INSTRUÇÕES DE MONTAGEM -->
+<div class="section" id="sec5">
+  <div class="section-header">
+    <div class="section-icon s5">🔧</div>
+    <div><div class="section-title">Substantivos e Verbos nas Instruções</div><div class="section-sub">Como funciona um texto de montagem</div></div>
+  </div>
+
+  <div class="tip"><div class="tip-title">💡 O que é um texto de instrução?</div>
+    É um texto que ensina a <strong>fazer algo passo a passo</strong>. Como montar um bilboquê ou uma tamanca. Usa verbos de comando e substantivos para nomear os materiais.
+  </div>
+
+  <div class="rule-box">
+    <div class="rule-title">📐 Partes de um texto de instrução</div>
+    <div class="rule-row"><span class="rule-tag bg-green">TÍTULO</span><div class="rule-text">Nome do que vai ser feito.<small>Ex: Bilboquê · Como fazer uma tamanca</small></div></div>
+    <div class="rule-row"><span class="rule-tag bg-teal">MATERIAIS</span><div class="rule-text"><em>Substantivos</em> — lista de tudo que vai precisar.<small>Ex: garrafa, fio, tampinha, fita adesiva</small></div></div>
+    <div class="rule-row"><span class="rule-tag bg-purple">MODO DE FAZER</span><div class="rule-text"><em>Verbos no imperativo</em> — ordens e comandos.<small>Ex: Corte · Cole · Faça · Amarre · Passe</small></div></div>
+  </div>
+
+  <div class="example-box">
+    <div class="ex-label">Exemplo do livro — Bilboquê</div>
+    <strong>Materiais (substantivos):</strong> garrafa pet, fita adesiva, tampinha, fio de náilon<br><br>
+    <strong>Verbos de comando:</strong> <em class="ex-correct">Corte</em> a garrafa. <em class="ex-correct">Faça</em> um furo. <em class="ex-correct">Passe</em> o fio. <em class="ex-correct">Cole</em> a tampinha.
+  </div>
+
+  <div class="tip"><div class="tip-title">🧠 Macete</div>
+    Na lista de materiais = <strong>substantivos</strong> (nomes das coisas). Nos passos = <strong>verbos de comando</strong> (o que fazer). Os verbos de instrução sempre começam o passo!
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- SEC 6 USO DO SS -->
+<div class="section" id="sec6">
+  <div class="section-header">
+    <div class="section-icon s6">SS</div>
+    <div><div class="section-title">Uso do SS</div><div class="section-sub">Quando usar SS nas palavras</div></div>
+  </div>
+
+  <div class="tip"><div class="tip-title">💡 A regra principal</div>
+    O <strong>SS</strong> aparece sempre <strong>entre duas vogais</strong> dentro de uma palavra. Uma letra S sozinha entre vogais teria som de Z, então precisamos de SS para manter o som de S.
+  </div>
+
+  <div class="rule-box">
+    <div class="rule-title">📐 A regra do SS</div>
+    <div class="rule-row"><span class="rule-tag bg-pink">SS entre vogais</span><div class="rule-text">Vogal + <em>SS</em> + Vogal = som de S<small>Ex: a-<em>ss</em>o-alho · ma-<em>ss</em>a · pa-<em>ss</em>ar</small></div></div>
+    <div class="rule-row"><span class="rule-tag bg-red">Atenção!</span><div class="rule-text">S simples entre vogais = som de Z!<small>Ex: ca-<em>s</em>a (som Z) · a-<em>s</em>a (som Z)</small></div></div>
+    <div class="rule-row"><span class="rule-tag bg-purple">Família de palavras</span><div class="rule-text">Se uma palavra tem SS, a família mantém o SS.<small>Ex: passa → passada → passagem → passador</small></div></div>
+  </div>
+
+  <div class="ss-grid">
+    <div class="ss-item"><div class="ss-word">a<span>ss</span>o</div><div class="ss-tip">vogal+SS+vogal</div></div>
+    <div class="ss-item"><div class="ss-word">ma<span>ss</span>a</div><div class="ss-tip">vogal+SS+vogal</div></div>
+    <div class="ss-item"><div class="ss-word">pa<span>ss</span>ar</div><div class="ss-tip">vogal+SS+vogal</div></div>
+    <div class="ss-item"><div class="ss-word">pre<span>ss</span>a</div><div class="ss-tip">vogal+SS+vogal</div></div>
+    <div class="ss-item"><div class="ss-word">e<span>ss</span>e</div><div class="ss-tip">vogal+SS+vogal</div></div>
+    <div class="ss-item"><div class="ss-word">o<span>ss</span>o</div><div class="ss-tip">vogal+SS+vogal</div></div>
+  </div>
+
+  <div class="tip"><div class="tip-title">🧠 Macete</div>
+    Olha para os lados do SS. Se tem <strong>vogal de um lado E do outro</strong> = usa SS! Nunca use SS no começo de palavra e nunca depois de consoante.
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- SEC 7 ADJETIVOS -->
+<div class="section" id="sec7">
+  <div class="section-header">
+    <div class="section-icon s7">🎨</div>
+    <div><div class="section-title">Adjetivos e Locuções Adjetivas</div><div class="section-sub">Palavras que caracterizam o substantivo</div></div>
+  </div>
+
+  <div class="tip"><div class="tip-title">💡 O que é adjetivo?</div>
+    Adjetivo é a palavra que <strong>caracteriza</strong> (descreve) um substantivo. Diz como ele é, como parece, de que tamanho, de que cor.
+  </div>
+
+  <div class="rule-box">
+    <div class="rule-title">📐 Adjetivo × Locução Adjetiva</div>
+    <div class="rule-row"><span class="rule-tag bg-blue">ADJETIVO</span><div class="rule-text"><em>Uma palavra</em> que caracteriza o substantivo.<small>Ex: chinelo <em>velho</em> · chinelo <em>grande</em> · chinelo <em>bonito</em></small></div></div>
+    <div class="rule-row"><span class="rule-tag bg-teal">LOCUÇÃO ADJETIVA</span><div class="rule-text"><em>Duas ou mais palavras</em> (preposição + substantivo) que funcionam como adjetivo.<small>Ex: chinelo <em>de borracha</em> · chinelo <em>de pano</em> · barco <em>de madeira</em></small></div></div>
+  </div>
+
+  <div class="example-box">
+    <div class="ex-label">Exemplos do livro — Tamanca</div>
+    <strong>Adjetivos:</strong> chinelo <em class="ex-correct">velho</em> · chinelo <em class="ex-correct">novo</em> · chinelo <em class="ex-correct">grande</em><br><br>
+    <strong>Locuções adjetivas:</strong> chinelo <em class="ex-correct">de borracha</em> · chinelo <em class="ex-correct">de pano</em> · sola <em class="ex-correct">de plástico</em>
+  </div>
+
+  <div class="tip"><div class="tip-title">🧠 Macete</div>
+    Adjetivo = <strong>uma palavra</strong> que descreve. Locução adjetiva = <strong>"de + algo"</strong> que descreve. Ambos respondem à pergunta: <strong>"Como é o quê?"</strong>
+  </div>
+</div>
+
+<div class="bottom-nav">
+  <a href="index.html" class="btn-home">🏠 Voltar ao Início</a>
+  <a href="nivel1_basico.html" class="btn-next">⭐ Nível 1 →</a>
+</div>
+
+<div style="height:60px;"></div>
+<div class="progress-footer">
+  <div class="pf-label">📖 Progresso</div>
+  <div class="pf-bar"><div class="pf-fill" id="pfFill"></div></div>
+  <div class="pf-pct" id="pfPct">0%</div>
+</div>
+
+<div class="credit">Desenvolvido por <strong>Jhony Beraldo</strong></div>
+
+<script>
+document.querySelectorAll('.nav-dot[data-target]').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.nav-dot').forEach(function(d) { d.classList.remove('active'); });
+    btn.classList.add('active');
+    var target = document.getElementById(btn.dataset.target);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+var sections = ['sec1','sec2','sec3','sec4','sec5','sec6','sec7'];
+function updateProgress() {
+  var scrolled = window.scrollY + window.innerHeight;
+  var total = document.body.scrollHeight;
+  var pct = Math.min(100, Math.round((scrolled / total) * 100));
+  document.getElementById('pfFill').style.width = pct + '%';
+  document.getElementById('pfPct').textContent = pct + '%';
+  for (var i = sections.length - 1; i >= 0; i--) {
+    var el = document.getElementById(sections[i]);
+    if (el && window.scrollY >= el.offsetTop - 120) {
+      document.querySelectorAll('.nav-dot').forEach(function(d, idx) { d.classList.toggle('active', idx === i); });
+      break;
+    }
+  }
+}
+window.addEventListener('scroll', updateProgress, { passive: true });
+updateProgress();
+</script>
+</body>
+</html>

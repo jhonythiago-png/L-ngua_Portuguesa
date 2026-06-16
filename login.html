@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>🔐 Acesso — Material de Estudos</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: linear-gradient(145deg, #1a0533, #2d1b69, #1a1035);
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 20px;
+}
+.bg-glow {
+  position: fixed; inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(124,58,237,0.25) 0%, transparent 55%),
+    radial-gradient(ellipse at 75% 80%, rgba(168,85,247,0.15) 0%, transparent 55%);
+  pointer-events: none;
+}
+.login-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 24px;
+  padding: 32px 24px 28px;
+  width: 100%; max-width: 360px;
+  backdrop-filter: blur(12px);
+  position: relative; z-index: 1;
+}
+.login-logo { text-align: center; margin-bottom: 24px; }
+.login-logo .emoji { font-size: 3rem; display: block; margin-bottom: 8px; }
+.login-logo h1 { font-size: 1.3rem; font-weight: 900; color: white; }
+.login-logo p  { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-top: 4px; }
+
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: 0.75rem; font-weight: 700; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 7px; }
+.form-group input {
+  width: 100%;
+  background: rgba(255,255,255,0.08);
+  border: 1.5px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  padding: 13px 16px;
+  font-size: 1rem; font-family: inherit;
+  color: white; outline: none;
+  transition: border-color 0.2s;
+}
+.form-group input::placeholder { color: rgba(255,255,255,0.3); }
+.form-group input:focus { border-color: #a78bfa; }
+.form-group input.error { border-color: #f87171; }
+
+.login-btn {
+  width: 100%; padding: 15px;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  color: white; border: none; border-radius: 14px;
+  font-size: 1rem; font-family: inherit; font-weight: 800;
+  cursor: pointer; margin-top: 8px;
+  box-shadow: 0 4px 20px rgba(124,58,237,0.4);
+  transition: transform 0.1s, opacity 0.2s;
+}
+.login-btn:active { transform: scale(0.98); }
+.login-btn:disabled { opacity: 0.5; pointer-events: none; }
+
+.error-msg {
+  display: none;
+  background: rgba(248,113,113,0.12);
+  border: 1px solid rgba(248,113,113,0.35);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  color: #fca5a5;
+  margin-top: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+.error-msg.show { display: block; }
+
+.contact-msg {
+  display: none;
+  background: rgba(251,191,36,0.1);
+  border: 1px solid rgba(251,191,36,0.3);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 0.85rem;
+  color: #fcd34d;
+  margin-top: 12px;
+  line-height: 1.6;
+  text-align: center;
+}
+.contact-msg.show { display: block; }
+.contact-msg strong { color: #fbbf24; }
+
+.attempts-bar {
+  display: flex; gap: 6px; justify-content: center;
+  margin-top: 14px;
+}
+.attempt-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  transition: background 0.3s;
+}
+.attempt-dot.used { background: #f87171; }
+
+.credit { position: fixed; bottom: 16px; color: rgba(255,255,255,0.2); font-size: 0.72rem; z-index: 1; }
+.credit strong { color: rgba(255,255,255,0.4); }
+
+/* shake animation */
+@keyframes shake {
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-8px)}
+  40%{transform:translateX(8px)}
+  60%{transform:translateX(-6px)}
+  80%{transform:translateX(6px)}
+}
+.shake { animation: shake 0.4s ease; }
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+
+<div class="login-card">
+  <div class="login-logo">
+    <span class="emoji">📖</span>
+    <h1>Material de Estudos</h1>
+    <p>Língua Portuguesa · Caps. 4 e 5</p>
+  </div>
+
+  <div class="form-group">
+    <label>Usuário</label>
+    <input type="text" id="inputUser" placeholder="Digite seu usuário" autocomplete="username" autocapitalize="none">
+  </div>
+  <div class="form-group">
+    <label>Senha</label>
+    <input type="password" id="inputPass" placeholder="Digite sua senha" autocomplete="current-password">
+  </div>
+
+  <button class="login-btn" id="loginBtn">Entrar →</button>
+
+  <div class="error-msg" id="errorMsg">❌ Usuário ou senha incorretos.<br>Verifique seus dados e tente novamente.</div>
+  <div class="contact-msg" id="contactMsg">⚠️ Você errou a senha 3 vezes.<br>Entre em contato com o administrador para recuperar seu acesso.<br><br><strong>📲 Jhony Beraldo</strong></div>
+
+  <div class="attempts-bar">
+    <div class="attempt-dot" id="dot1"></div>
+    <div class="attempt-dot" id="dot2"></div>
+    <div class="attempt-dot" id="dot3"></div>
+  </div>
+</div>
+
+<div class="credit">Desenvolvido por <strong>Jhony Beraldo</strong></div>
+
+<script>
+// ── CREDENCIAIS ──────────────────────────────────────────────────────────────
+// Admin hardcoded — não mude aqui, mude no painel admin
+var ADMIN = { user: 'admin', pass: '240159', role: 'admin' };
+
+// Usuários cadastrados ficam no localStorage
+function getUsers() {
+  try {
+    return JSON.parse(localStorage.getItem('pt_users') || '[]');
+  } catch(e) { return []; }
+}
+
+var attempts = 0;
+var MAX_ATTEMPTS = 3;
+var blocked = false;
+
+function updateDots() {
+  for (var i = 1; i <= 3; i++) {
+    var dot = document.getElementById('dot' + i);
+    dot.classList.toggle('used', i <= attempts);
+  }
+}
+
+function doLogin() {
+  if (blocked) return;
+  var user = document.getElementById('inputUser').value.trim().toLowerCase();
+  var pass = document.getElementById('inputPass').value;
+  var errorMsg   = document.getElementById('errorMsg');
+  var contactMsg = document.getElementById('contactMsg');
+  var card = document.querySelector('.login-card');
+
+  errorMsg.classList.remove('show');
+  contactMsg.classList.remove('show');
+  document.getElementById('inputUser').classList.remove('error');
+  document.getElementById('inputPass').classList.remove('error');
+
+  if (!user || !pass) {
+    errorMsg.textContent = '⚠️ Preencha o usuário e a senha.';
+    errorMsg.classList.add('show');
+    return;
+  }
+
+  // Check admin
+  var ok = false;
+  var userData = null;
+  if (user === ADMIN.user && pass === ADMIN.pass) {
+    ok = true;
+    userData = { user: ADMIN.user, role: 'admin', name: 'Administrador', materials: ['portugues','ingles'] };
+  } else {
+    // Check registered users
+    var users = getUsers();
+    for (var i = 0; i < users.length; i++) {
+      if (users[i].user.toLowerCase() === user && users[i].pass === pass && users[i].active !== false) {
+        ok = true;
+        userData = users[i];
+        break;
+      }
+    }
+  }
+
+  if (ok) {
+    // Save session
+    sessionStorage.setItem('pt_session', JSON.stringify({
+      user: userData.user,
+      name: userData.name || userData.user,
+      role: userData.role || 'user',
+      materials: userData.materials || ['portugues'],
+      loginTime: Date.now()
+    }));
+    // Redirect
+    if (userData.role === 'admin') {
+      window.location.href = 'admin.html';
+    } else {
+      window.location.href = 'index.html';
+    }
+  } else {
+    attempts++;
+    updateDots();
+    card.classList.remove('shake');
+    void card.offsetWidth;
+    card.classList.add('shake');
+    document.getElementById('inputUser').classList.add('error');
+    document.getElementById('inputPass').classList.add('error');
+    document.getElementById('inputPass').value = '';
+
+    if (attempts >= MAX_ATTEMPTS) {
+      blocked = true;
+      document.getElementById('loginBtn').disabled = true;
+      errorMsg.classList.remove('show');
+      contactMsg.classList.add('show');
+    } else {
+      errorMsg.textContent = '❌ Usuário ou senha incorretos. Tentativa ' + attempts + ' de ' + MAX_ATTEMPTS + '.';
+      errorMsg.classList.add('show');
+    }
+  }
+}
+
+document.getElementById('loginBtn').addEventListener('click', doLogin);
+document.getElementById('inputPass').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') doLogin();
+});
+document.getElementById('inputUser').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') document.getElementById('inputPass').focus();
+});
+
+// If already logged in, redirect
+var sess = sessionStorage.getItem('pt_session');
+if (sess) {
+  try {
+    var s = JSON.parse(sess);
+    if (s.role === 'admin') window.location.href = 'admin.html';
+    else window.location.href = 'index.html';
+  } catch(e) {}
+}
+</script>
+</body>
+</html>
